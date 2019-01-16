@@ -8,5 +8,6 @@ public class GetInterviewApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GetInterviewApplication.class, args);
-	}
+	
+	System.out.println("Nothing");}
 }
