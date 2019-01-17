@@ -4,6 +4,7 @@ public class Question {
 	private long id;
 	private String question;
 	private String answer;
+	
 	public long getId() {
 		return id;
 	}

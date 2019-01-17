@@ -1,7 +1,15 @@
 package com.get.interview.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Course {
 	
+	@Id
 	private long id;
+	@Column
 	private String title;
 	
 	

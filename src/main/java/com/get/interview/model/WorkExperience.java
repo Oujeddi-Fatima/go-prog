@@ -3,10 +3,12 @@ import java.util.Date;
 
 public class WorkExperience {
 	
+	private long id;
 	private Date startDate;
 	private Date finishDate;
 	private String title;
 	private String taskDescription;
+	
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -30,6 +32,12 @@ public class WorkExperience {
 	}
 	public void setTaskDescription(String taskDescription) {
 		this.taskDescription = taskDescription;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

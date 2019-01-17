@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Company {
 	
+	private long id;
 	private String name;
 	private String infoNumber;
 	private String primeObjective;
@@ -94,6 +95,14 @@ public class Company {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	

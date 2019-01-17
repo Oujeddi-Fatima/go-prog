@@ -2,18 +2,48 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
 public class AcademicRecord {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
+	@Column
 	private String schoolName;
+	@Column
 	private String degree;
+	@Column
 	private Date startDate;
+	@Column
 	private Date completionDate;
+	@Column
 	private float gpa;
+	
+	@JoinTable()
+	@OneToMany
 	private List<Course> courses ;
 	
 	
-	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public List<Course> getCourses() {
 		return courses;
 	}

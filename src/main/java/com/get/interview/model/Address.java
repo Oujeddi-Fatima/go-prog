@@ -1,6 +1,7 @@
 package com.get.interview.model;
 public class Address {
 	
+	private String id;
 	private String street;
 	private String city;
 	private String state;
@@ -30,6 +31,12 @@ public class Address {
 	}
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	

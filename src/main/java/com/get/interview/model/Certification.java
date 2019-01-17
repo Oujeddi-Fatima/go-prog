@@ -3,10 +3,14 @@ import java.util.Date;
 
 public class Certification {
 	
+	private long id;
 	private String title;
 	private Date completionDate;
 	private Date expirationDate;
 	private String description;
+	
+	
+	
 	public String getTitle() {
 		return title;
 	}
@@ -30,6 +34,12 @@ public class Certification {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

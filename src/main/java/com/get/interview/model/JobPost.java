@@ -5,6 +5,7 @@ import java.util.List;
 
 public class JobPost {
 	
+	private long id;
 	private String title;
 	private String level;
 	private String description;
@@ -91,6 +92,12 @@ public class JobPost {
 	}
 	public void setApplications(List<Application> applications) {
 		this.applications = applications;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	
