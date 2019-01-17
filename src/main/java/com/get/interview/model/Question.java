@@ -1,8 +1,27 @@
 package com.get.interview.model;
 public class Question {
-	
+
+	private long id;
 	private String question;
 	private String answer;
-	private long id;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 
+	
 }
