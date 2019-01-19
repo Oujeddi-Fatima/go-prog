@@ -2,17 +2,33 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Employer extends User{
 	
-	private Date joinDate;
-	private String cDescription;
+	@Column
+	private Date joinDate;	
+	@Column
+	private String Description;
+	@Column
 	private String jobTitle;
+	@Column
 	private Date experience;
+	@Column
 	private String workPhone;
+	@Column
 	private String workFax;
-	
+	@Column
 	private Company company;
+	
+	@JoinTable
+	@OneToMany
 	private List<JobPost> jobPosts;
+	
 	public Date getJoinDate() {
 		return joinDate;
 	}
@@ -20,10 +36,10 @@ public class Employer extends User{
 		this.joinDate = joinDate;
 	}
 	public String getcDescription() {
-		return cDescription;
+		return Description;
 	}
 	public void setcDescription(String cDescription) {
-		this.cDescription = cDescription;
+		this.Description = cDescription;
 	}
 	public String getJobTitle() {
 		return jobTitle;

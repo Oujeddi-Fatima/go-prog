@@ -1,12 +1,25 @@
 package com.get.interview.model;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Certification {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@Column
 	private String title;
+	@Column
 	private Date completionDate;
+	@Column
 	private Date expirationDate;
+	@Column
 	private String description;
 	
 	

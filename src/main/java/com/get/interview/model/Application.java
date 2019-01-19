@@ -2,16 +2,38 @@ package com.get.interview.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Application {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@Column
 	private Date submissionDate;
+	
+	@JoinTable
+	@OneToOne
 	private ApplicationStatus status;
+	@Column
 	private int score;
 	
-	
+	@JoinTable
+	@OneToOne
 	private JobPost jobPost;
+	
+	@JoinTable
+	@OneToOne
 	private User applicant;
+	
 	public long getId() {
 		return id;
 	}

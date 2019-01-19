@@ -3,21 +3,49 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class JobPost {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@Column
 	private String title;
+	@Column
 	private String level;
+	@Column
 	private String description;
+	@Column
 	private String requirement;
+	@Column
 	private String requiredQalification;
+	@Column
 	private Date postDate;
+	@Column
 	private Date closeDate;
+	@Column
 	private Long estimatedSalary;
 	
+	@JoinTable
+	@OneToOne
 	private Company company;
+	@JoinTable
+	@OneToOne
 	private Address address;
+	@JoinTable
+	@OneToMany
 	private List<Question> questions;
+	@JoinTable
+	@OneToMany
 	private List<Application> applications;
 	
 	

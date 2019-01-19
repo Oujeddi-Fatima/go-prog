@@ -1,11 +1,24 @@
 package com.get.interview.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Project {
 	
+	@Id
+	@GeneratedValue(strategy =GenerationType.AUTO)
 	private long id;
+	@Column
 	private String title;
+	@Column
 	private String description;
+	@Column
 	private long duration;
+	@Column
 	private String link;
 	
 	

@@ -1,12 +1,25 @@
 package com.get.interview.model;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class WorkExperience {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@Column
 	private Date startDate;
+	@Column
 	private Date finishDate;
+	@Column
 	private String title;
+	@Column
 	private String taskDescription;
 	
 	public Date getStartDate() {

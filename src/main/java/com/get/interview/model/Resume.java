@@ -2,23 +2,50 @@ package com.get.interview.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Resume {	
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@Column
 	private String title;
+	@Column
 	private String description;
+	@Column
 	private String skills;
+	@Column
 	private String achievements;
+	@Column
 	private boolean visible;
 	
+	@JoinTable
+	@OneToOne
 	private User user;
+	
+	@OneToMany
 	private List<String> languages;
+	@JoinTable
+	@OneToMany
 	private List<AcademicRecord> academicRecords;
+	@JoinTable
+	@OneToMany
 	private List<WorkExperience> workExperience;
+	@JoinTable
+	@OneToMany
 	private List<Certification> certifications;
+	@JoinTable
+	@OneToMany
 	private List<Project> projects;
-	
-	
 	
 	
 	public long getId() {
