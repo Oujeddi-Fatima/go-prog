@@ -25,8 +25,8 @@ public class Employer extends User{
 	@Column
 	private Company company;
 	
-	@JoinTable
 	@OneToMany
+	@JoinTable(name = "jobpost_activity")
 	private List<JobPost> jobPosts;
 	
 	public Date getJoinDate() {

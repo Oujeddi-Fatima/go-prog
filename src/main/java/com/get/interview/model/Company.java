@@ -3,12 +3,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -32,14 +32,16 @@ public class Company {
 	@Column
 	private String fax;
 
-	@OneToMany
+	@Column
+    @ElementCollection(targetClass=String.class)
 	private List<String> phone;
 	
-	@OneToMany
+	@Column
+    @ElementCollection(targetClass=String.class)
 	private List<String> contacts;
 	
-	@JoinTable
 	@OneToOne
+	@JoinTable(name = "address_activity")
 	private Address address;
 
 	public String getName() {

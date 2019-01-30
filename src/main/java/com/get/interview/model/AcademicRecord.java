@@ -27,8 +27,8 @@ public class AcademicRecord {
 	@Column
 	private float gpa;
 	
-	@JoinTable()
 	@OneToMany
+	@JoinTable(name = "course_activity")
 	private List<Course> courses ;
 	
 	

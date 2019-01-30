@@ -17,21 +17,22 @@ public class Application {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	@Column
 	private Date submissionDate;
 	
-	@JoinTable
-	@OneToOne
-	private ApplicationStatus status;
 	@Column
 	private int score;
 	
-	@JoinTable
+	@Column
+	private ApplicationStatus status;
+	
 	@OneToOne
+	@JoinTable(name = "jobpost_activity")
 	private JobPost jobPost;
 	
-	@JoinTable
 	@OneToOne
+	@JoinTable(name = "user_activity")
 	private User applicant;
 	
 	public long getId() {

@@ -1,7 +1,5 @@
 package com.get.interview.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 
 
 public enum ApplicationStatus {

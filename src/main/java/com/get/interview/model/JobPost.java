@@ -35,17 +35,20 @@ public class JobPost {
 	@Column
 	private Long estimatedSalary;
 	
-	@JoinTable
 	@OneToOne
+	@JoinTable(name = "company_activity")
 	private Company company;
-	@JoinTable
+	
 	@OneToOne
+	@JoinTable(name = "address_activity")
 	private Address address;
-	@JoinTable
+	
 	@OneToMany
+	@JoinTable(name ="question_activity")
 	private List<Question> questions;
-	@JoinTable
+	
 	@OneToMany
+	@JoinTable(name ="application_activity")
 	private List<Application> applications;
 	
 	

@@ -3,11 +3,11 @@ package com.get.interview.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -28,22 +28,22 @@ public class Resume {
 	@Column
 	private boolean visible;
 	
-	@JoinTable
 	@OneToOne
 	private User user;
 	
-	@OneToMany
+	@Column
+    @ElementCollection(targetClass=String.class)
 	private List<String> languages;
-	@JoinTable
+	
 	@OneToMany
 	private List<AcademicRecord> academicRecords;
-	@JoinTable
+	
 	@OneToMany
 	private List<WorkExperience> workExperience;
-	@JoinTable
+	
 	@OneToMany
 	private List<Certification> certifications;
-	@JoinTable
+	
 	@OneToMany
 	private List<Project> projects;
 	
