@@ -3,12 +3,14 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -17,6 +19,7 @@ public class JobPost {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private long id;
 	@Column
 	private String title;
@@ -35,23 +38,33 @@ public class JobPost {
 	@Column
 	private Long estimatedSalary;
 	
+	//added
+	@ManyToOne
+	private Employer employee;
+	
 	@OneToOne
-	@JoinTable(name = "company_activity")
+	//@JoinTable(name = "company_activity")
+	@JoinColumn(name = "id", referencedColumnName = "id")
 	private Company company;
 	
 	@OneToOne
-	@JoinTable(name = "address_activity")
+	//@JoinTable(name = "address_activity")
+	@JoinColumn(name = "id", referencedColumnName = "id")
 	private Address address;
 	
-	@OneToMany
-	@JoinTable(name ="question_activity")
+	@OneToMany(mappedBy ="post")
 	private List<Question> questions;
 	
-	@OneToMany
-	@JoinTable(name ="application_activity")
+	@OneToMany(mappedBy ="app")
 	private List<Application> applications;
+		
 	
-	
+	public Employer getEmployee() {
+		return employee;
+	}
+	public void setEmployee(Employer employee) {
+		this.employee = employee;
+	}
 	public String getTitle() {
 		return title;
 	}

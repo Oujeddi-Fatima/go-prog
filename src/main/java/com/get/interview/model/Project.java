@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Project {
@@ -21,7 +22,16 @@ public class Project {
 	@Column
 	private String link;
 	
+	//added
+	@ManyToOne
+	private Resume resume3;
 	
+	public Resume getResume3() {
+		return resume3;
+	}
+	public void setResume3(Resume resume3) {
+		this.resume3 = resume3;
+	}
 	public String getTitle() {
 		return title;
 	}

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Question {
@@ -17,6 +18,16 @@ public class Question {
 	@Column
 	private String answer;
 	
+	//added
+	@ManyToOne
+	private JobPost post;
+	
+	public JobPost getPost() {
+		return post;
+	}
+	public void setPost(JobPost post) {
+		this.post = post;
+	}
 	public long getId() {
 		return id;
 	}

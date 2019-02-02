@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Certification {
@@ -22,8 +23,17 @@ public class Certification {
 	@Column
 	private String description;
 	
+	//added
+	@ManyToOne
+	private Resume resume2;
 	
 	
+	public Resume getResume2() {
+		return resume2;
+	}
+	public void setResume2(Resume resume2) {
+		this.resume2 = resume2;
+	}
 	public String getTitle() {
 		return title;
 	}

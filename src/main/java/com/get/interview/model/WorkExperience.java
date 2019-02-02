@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class WorkExperience {
@@ -22,6 +23,16 @@ public class WorkExperience {
 	@Column
 	private String taskDescription;
 	
+	//added
+	@ManyToOne
+	private Resume resume1;
+	
+	public Resume getResume1() {
+		return resume1;
+	}
+	public void setResume1(Resume resume1) {
+		this.resume1 = resume1;
+	}
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -53,6 +64,4 @@ public class WorkExperience {
 		this.id = id;
 	}
 	
-	
-
 }

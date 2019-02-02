@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Application {
@@ -27,14 +25,25 @@ public class Application {
 	@Column
 	private ApplicationStatus status;
 	
-	@OneToOne
-	@JoinTable(name = "jobpost_activity")
-	private JobPost jobPost;
+	//added
+	@ManyToOne
+	private JobPost app;
 	
-	@OneToOne
-	@JoinTable(name = "user_activity")
+	//@OneToOne
+	//@JoinTable(name = "jobpost_activity")
+	//private JobPost jobPost;
+	
+	//@OneToOne
+	//@JoinTable(name = "user_activity")
+	@ManyToOne
 	private User applicant;
 	
+	public JobPost getApp() {
+		return app;
+	}
+	public void setApp(JobPost app) {
+		this.app = app;
+	}
 	public long getId() {
 		return id;
 	}
@@ -59,12 +68,12 @@ public class Application {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public JobPost getJobPost() {
+	/*public JobPost getJobPost() {
 		return jobPost;
 	}
 	public void setJobPost(JobPost jobPost) {
 		this.jobPost = jobPost;
-	}
+	}*/
 	public User getApplicant() {
 		return applicant;
 	}

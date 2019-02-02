@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Course {
@@ -15,7 +16,16 @@ public class Course {
 	@Column
 	private String title;
 	
+	//added 
+	@ManyToOne
+	private AcademicRecord record;
 	
+	public AcademicRecord getRecord() {
+		return record;
+	}
+	public void setRecord(AcademicRecord record) {
+		this.record = record;
+	}
 	public long getId() {
 		return id;
 	}

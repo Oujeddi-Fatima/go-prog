@@ -2,14 +2,15 @@ package com.get.interview.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Resume {	
@@ -28,23 +29,25 @@ public class Resume {
 	@Column
 	private boolean visible;
 	
-	@OneToOne
+	/*@OneToOne
+	@JoinTable(name = "user_activity")*/
+	@ManyToOne
 	private User user;
 	
 	@Column
     @ElementCollection(targetClass=String.class)
 	private List<String> languages;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "resume")
 	private List<AcademicRecord> academicRecords;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "resume1")
 	private List<WorkExperience> workExperience;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "resume2")
 	private List<Certification> certifications;
 	
-	@OneToMany
+	@OneToMany(mappedBy= "resume3")
 	private List<Project> projects;
 	
 	

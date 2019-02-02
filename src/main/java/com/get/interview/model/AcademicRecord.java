@@ -2,12 +2,13 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -27,8 +28,12 @@ public class AcademicRecord {
 	@Column
 	private float gpa;
 	
-	@OneToMany
-	@JoinTable(name = "course_activity")
+	//added
+	@ManyToOne
+	private Resume resume;
+	
+	@OneToMany(mappedBy = "record")
+	//@JoinTable(name = "course_activity")
 	private List<Course> courses ;
 	
 	
