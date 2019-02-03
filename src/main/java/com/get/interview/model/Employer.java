@@ -2,10 +2,12 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Employer extends User{
@@ -22,13 +24,23 @@ public class Employer extends User{
 	private String workPhone;
 	@Column
 	private String workFax;
-	@Column
+	
+	@OneToOne
+	//@JoinTable(name = "company_activity")
+	@JoinColumn(name = "id")
 	private Company company;
 	
-	@JoinTable
-	@OneToMany
+	@OneToMany(mappedBy = "employee")
+	//@JoinTable(name = "jobpost_activity")
 	private List<JobPost> jobPosts;
 	
+	
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
 	public Date getJoinDate() {
 		return joinDate;
 	}

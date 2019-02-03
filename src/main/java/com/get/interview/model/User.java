@@ -2,20 +2,27 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "id")
 	private long id;
 	@Column
 	private String firstName;
@@ -28,24 +35,26 @@ public class User {
 	@Column
 	private Date dateOfBirth;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column
 	private long publicResumeId;
 	
-	@JoinTable()
-	@OneToMany
+	@OneToMany(mappedBy = "user")
+	//@JoinTable(name = "resume_activity")
 	private List<Resume> resumes;
 	
-	@OneToMany
+	@Column
+    @ElementCollection(targetClass=String.class)
 	private List<String> links;
 	
-	@JoinTable()
 	@OneToOne
+	//@JoinTable(name = "aaddress_activity")
+	@JoinColumn(name = "id", referencedColumnName = "id")
 	private Address address;
 	
-	@JoinTable()
-	@OneToMany
+	@OneToMany(mappedBy = "applicant")
+	//@JoinTable(name = "applications_activity")
 	private List<Application> applications;
+	
 
 	
 	public long getId() {
