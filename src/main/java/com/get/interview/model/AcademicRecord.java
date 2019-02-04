@@ -20,7 +20,7 @@ public class AcademicRecord {
 	@Column
 	private String schoolName;
 	@Column
-	private String degree;
+	private Degree degree;
 	@Column
 	private Date startDate;
 	@Column
@@ -55,10 +55,10 @@ public class AcademicRecord {
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
 	}
-	public String getDegree() {
+	public Degree getDegree() {
 		return degree;
 	}
-	public void setDegree(String degree) {
+	public void setDegree(Degree degree) {
 		this.degree = degree;
 	}
 	public Date getStartDate() {
