@@ -32,6 +32,8 @@ public class Company {
 	private Date startDate;
 	@Column
 	private String fax;
+	@Column
+	private BusinessType businessType;
 
 	@Column
     @ElementCollection(targetClass=String.class)

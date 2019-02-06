@@ -1,8 +1,5 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
-.apt_generated
 .classpath
 .factorypath
 .project
@@ -16,6 +13,7 @@
 *.iml
 *.ipr
 
+
 ### NetBeans ###
 /nbproject/private/
 /build/
@@ -23,3 +21,12 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Custom Files ###
+src/main/.DS_Store
+src/main/java/.DS_Store
+src/main/java/com/.DS_Store
+src/main/java/com/get/.DS_Store
+src/main/java/com/get/interview/.DS_Store
+*.DS_Store
+
