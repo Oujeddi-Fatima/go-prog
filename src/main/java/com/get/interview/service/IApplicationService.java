@@ -14,7 +14,7 @@ public interface IApplicationService {
 	
 	List<Application> findByJobPost(Long jobPostId);
 	
-	List<Application> findByUser(Long userId);
+	Application findByUser(Long userId);
 	
 	
 }

@@ -78,9 +78,6 @@ public class AcademicRecord {
 	}
 	public void setGpa(float gpa) {
 		this.gpa = gpa;
-	}
-	
-	
-	
+	}	
 
 }

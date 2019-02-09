@@ -45,7 +45,7 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping(value = "{userId}", method = RequestMethod.GET)
-	public @ResponseBody List<Application> getapp(@PathVariable Long userId){
+	public @ResponseBody Application getapp(@PathVariable Long userId){
 		
 		return applicationService.findByUser(userId);
 	}

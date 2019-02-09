@@ -18,15 +18,6 @@ public class ResumeService implements IResumeService{
 	@Autowired
 	private IResumeDao resumeDao;
 		
-	
-	public IResumeDao getResumeDao() {
-		return resumeDao;
-	}
-
-	public void setResumeDao(IResumeDao resumeDao) {
-		this.resumeDao = resumeDao;
-	}
-
 	@Override
 	public Resume save(Resume resume) {
 		// TODO Auto-generated method stub
@@ -80,5 +71,15 @@ public class ResumeService implements IResumeService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
+	public IResumeDao getResumeDao() {
+		return resumeDao;
+	}
+
+	public void setResumeDao(IResumeDao resumeDao) {
+		this.resumeDao = resumeDao;
+	}
+
 
 }

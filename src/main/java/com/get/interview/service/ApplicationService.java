@@ -27,7 +27,7 @@ public class ApplicationService implements IApplicationService{
 	}
 
 	@Override
-	public List<Application> findByUser(Long userId) {
+	public Application findByUser(Long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
