@@ -26,9 +26,9 @@ public class AddressService implements IAddressService{
 	}
 
 	@Override
-	public Address findByUser(Long userId) {
+	public Address find(Long id) {
 		
-		return null;
+		return addressDao.findById(id).get();
 	}
 
 	@Override
