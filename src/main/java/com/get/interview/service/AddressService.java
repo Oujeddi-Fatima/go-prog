@@ -32,9 +32,8 @@ public class AddressService implements IAddressService{
 	}
 
 	@Override
-	public List<Address> findByCity(String street) {
-		
-		return null;
+	public List<Address> findByCity(String city) {		
+		return addressDao.findByCity(city);
 	}
 
 	@Override

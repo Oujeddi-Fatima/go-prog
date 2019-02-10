@@ -30,7 +30,6 @@ public class JobPostService implements IJobPostService{
 
 	@Override
 	public List<JobPost> findAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
