@@ -26,13 +26,11 @@ public class AcademicRecordService implements IAcademicRecordService{
 
 	@Override
 	public List<AcademicRecord> findAll() {
-		// TODO Auto-generated method stub
 		return (List<AcademicRecord>) academicRecordDao.findAll();
 	}
 
 	@Override
 	public List<AcademicRecord> findByResume(Long resumeId) {
-		// TODO Auto-generated method stub
 		return academicRecordDao.findByResume(resumeId);
 	}
 
