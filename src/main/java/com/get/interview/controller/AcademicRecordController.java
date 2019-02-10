@@ -14,7 +14,7 @@ import com.get.interview.model.AcademicRecord;
 import com.get.interview.service.IAcademicRecordService;
 
 @RestController
-@RequestMapping("AcademicRecord")
+@RequestMapping("academicrecord")
 public class AcademicRecordController {
 	
 	@Autowired

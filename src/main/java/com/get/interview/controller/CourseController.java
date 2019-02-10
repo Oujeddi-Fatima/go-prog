@@ -13,7 +13,7 @@ import com.get.interview.model.Course;
 import com.get.interview.service.ICourseService;
 
 @RestController
-@RequestMapping("Course")
+@RequestMapping("course")
 public class CourseController {
 	
 	@Autowired

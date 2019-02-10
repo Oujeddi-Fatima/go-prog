@@ -14,7 +14,7 @@ import com.get.interview.model.Employer;
 import com.get.interview.service.IEmployerService;
 
 @RestController
-@RequestMapping("Employer")
+@RequestMapping("employer")
 public class EmployerController {
 	
 	@Autowired

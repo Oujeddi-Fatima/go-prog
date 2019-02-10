@@ -14,7 +14,7 @@ import com.get.interview.model.Address;
 import com.get.interview.service.IAddressService;
 
 @RestController
-@RequestMapping("Address")
+@RequestMapping("address")
 public class AddressController {
 
 	@Autowired
