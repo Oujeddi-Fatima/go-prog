@@ -15,7 +15,7 @@ import com.get.interview.model.Certification;
 import com.get.interview.service.ICertificationService;
 
 @RestController
-@RequestMapping("Certification")
+@RequestMapping("certification")
 public class CertificationController {
 	
 	@Autowired

@@ -18,7 +18,7 @@ import com.get.interview.model.WorkExperience;
 import com.get.interview.service.IResumeService;
 
 @RestController
-@RequestMapping("Resume")
+@RequestMapping("resume")
 public class ResumeController {
 	
 	@Autowired

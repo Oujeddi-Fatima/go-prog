@@ -14,7 +14,7 @@ import com.get.interview.model.Application;
 import com.get.interview.service.IApplicationService;
 
 @RestController
-@RequestMapping("Application")
+@RequestMapping("application")
 public class ApplicationController {
 	
 	@Autowired

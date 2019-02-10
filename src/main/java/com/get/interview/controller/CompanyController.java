@@ -15,7 +15,7 @@ import com.get.interview.model.Company;
 import com.get.interview.service.ICompanyService;
 
 @RestController
-@RequestMapping("Company")
+@RequestMapping("company")
 public class CompanyController{
 	
 	@Autowired

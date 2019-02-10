@@ -15,7 +15,7 @@ import com.get.interview.model.JobPost;
 import com.get.interview.service.IJobPostService;
 
 @RestController
-@RequestMapping("JobPost")
+@RequestMapping("jobpost")
 public class JobPostController {
 	
 	@Autowired
