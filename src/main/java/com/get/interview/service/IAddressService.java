@@ -10,13 +10,13 @@ public interface IAddressService {
 	
 	void delete(Address address);
 	
-	Address findByUser(Long userId);
-	
 	List<Address> findByCity(String street);
 	
 	List<Address> findByZip(String zip);
 	
 	List<Address> findByState(String state);
+
+	Address find(Long id);
 
 
 

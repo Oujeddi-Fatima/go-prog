@@ -31,9 +31,9 @@ public class AddressController {
 		addressService.delete(address);
 	}
 	
-	@RequestMapping(value = "{userId}", method = RequestMethod.GET)
-	public @ResponseBody Address findByUser(@PathVariable Long userId) {
-		return addressService.findByUser(userId);
+	@RequestMapping(value = "{id}", method = RequestMethod.GET)
+	public @ResponseBody Address find(@PathVariable Long id) {
+		return addressService.find(id);
 		
 	}
 	@RequestMapping(value = "{street}", method = RequestMethod.GET)
