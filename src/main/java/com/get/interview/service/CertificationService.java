@@ -18,7 +18,6 @@ public class CertificationService implements ICertificationService{
 
 	@Override
 	public Certification save(Certification certification) {
-		// TODO Auto-generated method stub
 		return certificationDao.save(certification);
 	}
 
@@ -29,20 +28,17 @@ public class CertificationService implements ICertificationService{
 
 	@Override
 	public Certification findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return certificationDao.findById(id).get();
 	}
-
+	
 	@Override
-	public List<Certification> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Certification> findByReume(long id) {
+		return certificationDao.findByReume(id);
 	}
 
 	@Override
 	public Certification findByexpirationDate(Date date) {
-		// TODO Auto-generated method stub
-		return null;
+		return certificationDao.findByexpirationDate(date);
 	}
 	
 
@@ -54,4 +50,5 @@ public class CertificationService implements ICertificationService{
 		this.certificationDao = certificationDao;
 	}
 
+	
 }

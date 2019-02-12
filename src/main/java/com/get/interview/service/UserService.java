@@ -19,15 +19,21 @@ public class UserService implements IUserService {
 	public User save(User user) {
 		return userDao.save(user);
 	}
+	
+	@Override
+	public void delete(User user) {
+		userDao.delete(user);
+	}
+	
 	@Override
 	public List<User> findAll(){
 		return (List<User>) userDao.findAll();
 	}
+	
 	@Override
 	public User findById(long userId){
 		return userDao.findById(userId).get();
 	}
-	
 	
 	public IUserDao getUserDao() {
 		return userDao;
@@ -36,21 +42,14 @@ public class UserService implements IUserService {
 	public void setUserDao(IUserDao userDao) {
 		this.userDao = userDao;
 	}
+	
 	@Override
 	public User update(User user) {
-		// TODO Auto-generated method stub
-		return userDao.save(user);
+		return userDao.update(user);
 	}
-	
-	
+
 	@Override
-	public void delete(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public List<User> findByAddress(Address location) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> findByfirstName(String name) {
+		return  userDao.findByfirstName(name);
 	}
 }

@@ -15,8 +15,7 @@ public class AddressService implements IAddressService{
 	private IAddressDao addressDao;
 	
 	@Override
-	public void save(Address address) {
-		
+	public void save(Address address) {	
 		addressDao.save(address);
 	}
 
@@ -26,8 +25,7 @@ public class AddressService implements IAddressService{
 	}
 
 	@Override
-	public Address find(Long id) {
-		
+	public Address find(Long id) {	
 		return addressDao.findById(id).get();
 	}
 
@@ -37,15 +35,13 @@ public class AddressService implements IAddressService{
 	}
 
 	@Override
-	public List<Address> findByZip(String zip) {
-		
-		return null;
+	public List<Address> findByZip(String zip) {	
+		return addressDao.findByZip(zip);
 	}
 
 	@Override
-	public List<Address> findByState(String state) {
-		
-		return null;
+	public List<Address> findByState(String state) {	
+		return addressDao.findByState(state);
 	}
 	
 	public IAddressDao getAddressDao() {

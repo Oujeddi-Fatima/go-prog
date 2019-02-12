@@ -27,7 +27,6 @@ public class AddressController {
 	
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@RequestBody Address address) {
-		
 		addressService.delete(address);
 	}
 	
@@ -36,9 +35,9 @@ public class AddressController {
 		return addressService.find(id);
 		
 	}
-	@RequestMapping(value = "{street}", method = RequestMethod.GET)
-	public @ResponseBody List<Address> findByCity(@PathVariable String street){
-		return addressService.findByCity(street);
+	@RequestMapping(value = "{city}", method = RequestMethod.GET)
+	public @ResponseBody List<Address> findByCity(@PathVariable String city){
+		return addressService.findByCity(city);
 		
 	}
 	@RequestMapping(value = "{zip}", method = RequestMethod.GET)

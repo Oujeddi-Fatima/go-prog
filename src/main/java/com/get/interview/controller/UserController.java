@@ -10,21 +10,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.get.interview.model.Degree;
 import com.get.interview.model.User;
 import com.get.interview.service.IUserService;
-import com.get.interview.service.UserService;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("User")
 public class UserController {
 		
 	@Autowired
 	private IUserService userService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void saveUser(@RequestBody User user) {
-		userService.save(user);
+	public @ResponseBody User saveUser(@RequestBody User user) {
+		return userService.save(user);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -42,13 +40,16 @@ public class UserController {
 		return userService.update(user);
 	}
 	
-	
-	 @RequestMapping(method = RequestMethod.DELETE) 
-	 public void deleteUser(@RequestBody User user) {
+	@RequestMapping(method = RequestMethod.DELETE) 
+	public void deleteUser(@RequestBody User user) {
 		 userService.delete(user);
-		 }
-	 
+	}
 	
+	@RequestMapping(value="name", method = RequestMethod.GET) 
+	public @ResponseBody List<User> findByfirstName(@PathVariable String name){
+		return userService.findByfirstName(name);		
+	}
+	  
 	public IUserService getUserService() {
 		return userService;
 	}

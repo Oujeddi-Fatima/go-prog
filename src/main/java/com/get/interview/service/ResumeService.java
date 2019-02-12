@@ -20,59 +20,29 @@ public class ResumeService implements IResumeService{
 		
 	@Override
 	public Resume save(Resume resume) {
-		// TODO Auto-generated method stub
 		return resumeDao.save(resume);
 	}
 
 	@Override
-	public void delete(long id) {
-		resumeDao.deleteById(id);
-		
+	public void delete(Resume resume) {
+		resumeDao.delete(resume);		
 	}
 
 	@Override
 	public Resume find(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return resumeDao.find(id);
 	}
-
-	@Override
-	public List<Resume> findByAddress(Address address) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<Resume> findByKey(String keyString) {
-		// TODO Auto-generated method stub
-		return null;
+		return resumeDao.findByKey(keyString);
 	}
 
 	@Override
 	public Resume findByUser(long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Resume> findByExperience(WorkExperience workExperience) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Resume> findByDegree(Degree degree) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Resume> findByCertification(Certification certification) {
-		// TODO Auto-generated method stub
-		return null;
+		return resumeDao.find(userId);
 	}
 	
-
 	public IResumeDao getResumeDao() {
 		return resumeDao;
 	}

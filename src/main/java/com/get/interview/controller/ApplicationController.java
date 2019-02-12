@@ -21,32 +21,27 @@ public class ApplicationController {
 	private IApplicationService applicationService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void save(@RequestBody Application application) {
-		
+	public void save(@RequestBody Application application) {	
 		applicationService.save(application);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@RequestBody Long id) {
-		
 		applicationService.delete(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<Application> getapplications(){
-		
+	public @ResponseBody List<Application> findAll(){		
 		return applicationService.findAll();
 	}
 	
 	@RequestMapping(value = "{jobPostId}", method = RequestMethod.GET)
-	public @ResponseBody List<Application> getapplication(@PathVariable Long jobPostId){
-		
+	public @ResponseBody List<Application> findByJobPost(@PathVariable Long jobPostId){		
 		return applicationService.findByJobPost(jobPostId);
 	}
 	
 	@RequestMapping(value = "{userId}", method = RequestMethod.GET)
-	public @ResponseBody Application getapp(@PathVariable Long userId){
-		
+	public @ResponseBody Application findByUser(@PathVariable Long userId){		
 		return applicationService.findByUser(userId);
 	}
 

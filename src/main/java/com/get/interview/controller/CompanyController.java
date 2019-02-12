@@ -23,35 +23,31 @@ public class CompanyController{
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public void saveUser(@RequestBody Company company) {
-		
 		companyService.save(company);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void deleteUser(@RequestBody long id) {
-		
 		companyService.delete(id);
 	}
+	
 	@RequestMapping(value ="{name}", method = RequestMethod.GET)
-	public @ResponseBody Company getCompany(@PathVariable String name) {
-		
+	public @ResponseBody Company getCompany(@PathVariable String name) {	
 		return companyService.findByName(name);
 	}
+	
 	@RequestMapping(value ="{id}", method = RequestMethod.GET)
-	public @ResponseBody Company getCompany(@PathVariable long id) {
-		
+	public @ResponseBody Company getCompany(@PathVariable long id) {	
 		return companyService.find(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody List<Company> getCompany(){
-		
 		return companyService.findAll();
 	}
 	
 	@RequestMapping(value = "{businessType}", method = RequestMethod.GET)
-	public List<Company> getBusiness(@PathVariable BusinessType businessType){
-		
+	public  @ResponseBody List<Company> getBusiness(@PathVariable BusinessType businessType){
 		return companyService.findByBusinessType(businessType);
 	}
 

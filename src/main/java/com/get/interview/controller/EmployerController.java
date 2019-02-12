@@ -3,6 +3,7 @@ package com.get.interview.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,21 +25,20 @@ public class EmployerController {
     public void save(@RequestBody Employer employer) {
 		employerService.save(employer);
     }
+	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void delete(@RequestBody Employer employer) {
-		
+	public void delete(@RequestBody Employer employer) {	
 		employerService.delete(employer);
 	}
 	
 	@RequestMapping(value = "{job}",method = RequestMethod.GET)
-	public @ResponseBody Employer find(@RequestBody String job) {
-		return employerService.find(job);
-		
+	public @ResponseBody Employer find(@PathVariable String job) {
+		return employerService.find(job);	
 	}
+	
 	@RequestMapping(value = "{company}",method = RequestMethod.GET)
-	public @ResponseBody List<Employer> findbyCompany(@RequestBody Company company){
-		return employerService.findbyCompany(company);
-		
+	public @ResponseBody List<Employer> findbyCompany(@PathVariable Company company){
+		return employerService.findbyCompany(company);	
 	}
 
 	public IEmployerService getEmployerService() {

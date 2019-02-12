@@ -30,18 +30,13 @@ public class ResumeController {
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void deleteUser(@RequestBody long id) {
-		resumeService.delete(id);
+	public void deleteUser(@RequestBody Resume resume) {
+		resumeService.delete(resume);
 	}
 	
 	@RequestMapping(value="{id}", method = RequestMethod.GET)
 	public @ResponseBody Resume getUser(@PathVariable long id) {
 		return resumeService.find(id);
-	}
-	
-	@RequestMapping(value="{address}", method = RequestMethod.GET)
-	public @ResponseBody List<Resume> getUsers(@PathVariable Address address) {
-		return resumeService.findByAddress(address);
 	}
 	
 	@RequestMapping(value="{keyString}", method = RequestMethod.GET)
@@ -53,22 +48,6 @@ public class ResumeController {
 	public @ResponseBody Resume getUsers(@PathVariable long userId) {
 		return resumeService.findByUser(userId);
 	}
-	
-	@RequestMapping(value="{workExperience}", method = RequestMethod.GET)
-	public @ResponseBody List<Resume> getUsers(@PathVariable WorkExperience workExperience) {
-		return resumeService.findByExperience(workExperience);
-	}
-	
-	@RequestMapping(value="{degree}", method = RequestMethod.GET)
-	public @ResponseBody List<Resume> getUsers(@PathVariable Degree degree) {
-		return resumeService.findByDegree(degree);
-	}
-	
-	@RequestMapping(value="{certification}", method = RequestMethod.GET)
-	public @ResponseBody List<Resume> getUsers(@PathVariable Certification certification) {
-		return resumeService.findByCertification(certification);
-	}
-	
 	
 	public IResumeService getResumeService() {
 		return resumeService;

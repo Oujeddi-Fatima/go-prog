@@ -14,4 +14,7 @@ public interface IAcademicRecordDao extends CrudRepository<AcademicRecord, Long>
 	@Query(value="FROM AcademicRecord WHERE resume.id =:resumeId")
 	List<AcademicRecord> findByResume(Long resumeId);
 	
+	@Query(value="FROM AcademicRecord WHERE gpa= : gpa")
+	public List<AcademicRecord> findByGpa(float gpa);
+	
 }

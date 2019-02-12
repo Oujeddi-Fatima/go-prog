@@ -34,7 +34,6 @@ public class User{
 	private String phoneNumber;
 	@Column
 	private Date dateOfBirth;
-	
 	@Column
 	private long publicResumeId;
 	

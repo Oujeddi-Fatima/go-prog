@@ -15,13 +15,10 @@ public class Application {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
 	@Column
 	private Date submissionDate;
-	
 	@Column
 	private int score;
-	
 	@Column
 	private ApplicationStatus status;
 	

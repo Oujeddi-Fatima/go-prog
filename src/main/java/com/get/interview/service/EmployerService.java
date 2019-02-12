@@ -17,27 +17,24 @@ public class EmployerService implements IEmployerService{
 	
 	@Override
 	public void save(Employer employer) {
-		
 		employerDao.save(employer);
 	}
 
 	@Override
 	public void delete(Employer employer) {
-		
 		employerDao.delete(employer);
 	}
 
 	@Override
-	public Employer find(String job) {
-		
-		return null;
+	public Employer find(String job) {	
+		return employerDao.find(job);
 	}
 
 	@Override
 	public List<Employer> findbyCompany(Company company) {
-		
-		return null;
+		return employerDao.findbyCompany(company);
 	}
+	
 	public IEmployerDao getEmployerDao() {
 		return employerDao;
 	}

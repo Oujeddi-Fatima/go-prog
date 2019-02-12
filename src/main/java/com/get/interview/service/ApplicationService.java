@@ -15,32 +15,27 @@ public class ApplicationService implements IApplicationService{
 	private IApplicationDao applicationDao;
 	
 	@Override
-	public void delete(Long id) {
-	
+	public void delete(Long id) {	
 		applicationDao.deleteById(id);
 	}
 
 	@Override
-	public List<Application> findByJobPost(Long jobPostId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Application> findByJobPost(Long jobPostId) {	
+		return applicationDao.findByJobPost(jobPostId);
 	}
 
 	@Override
 	public Application findByUser(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return applicationDao.findByUser(userId);
 	}
 
 	@Override
 	public Application save(Application application) {
-		// TODO Auto-generated method stub
 		return applicationDao.save(application);
 	}
 
 	@Override
 	public List<Application> findAll() {
-		// TODO Auto-generated method stub
 		return (List<Application>) applicationDao.findAll();
 	}
 
