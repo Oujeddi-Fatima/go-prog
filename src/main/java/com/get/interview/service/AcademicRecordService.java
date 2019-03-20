@@ -29,10 +29,7 @@ public class AcademicRecordService implements IAcademicRecordService{
 		return (List<AcademicRecord>) academicRecordDao.findAll();
 	}
 
-	@Override
-	public List<AcademicRecord> findByResume(Long resumeId) {
-		return academicRecordDao.findByResume(resumeId);
-	}
+
 
 	public IAcademicRecordDao getAcademicRecordDao() {
 		return academicRecordDao;

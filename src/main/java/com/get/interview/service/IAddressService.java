@@ -18,6 +18,8 @@ public interface IAddressService {
 
 	Address find(Long id);
 
+	Iterable<Address> findAll();
+
 
 
 }

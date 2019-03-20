@@ -1,11 +1,13 @@
 package com.get.interview.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Project {
@@ -22,15 +24,13 @@ public class Project {
 	@Column
 	private String link;
 	
-	//added
-	@ManyToOne
-	private Resume resume3;
 	
-	public Resume getResume3() {
-		return resume3;
+	
+	public long getId() {
+		return id;
 	}
-	public void setResume3(Resume resume3) {
-		this.resume3 = resume3;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -56,12 +56,4 @@ public class Project {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	
 }

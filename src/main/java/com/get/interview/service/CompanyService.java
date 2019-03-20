@@ -41,9 +41,9 @@ public class CompanyService implements ICompanyService{
 	}
 
 	@Override
-	public List<Company> findAll() {
+	public Iterable<Company> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return companyDao.findAll();
 	}
 
 	@Override

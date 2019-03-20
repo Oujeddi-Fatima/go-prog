@@ -13,5 +13,5 @@ public interface IAcademicRecordService {
 	
 	List<AcademicRecord> findAll();
 	
-	List<AcademicRecord> findByResume(Long resumeId);
+
 }
