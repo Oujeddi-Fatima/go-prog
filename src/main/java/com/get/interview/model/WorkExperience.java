@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class WorkExperience {
@@ -22,16 +23,17 @@ public class WorkExperience {
 	private String title;
 	@Column
 	private String taskDescription;
+	@Column 
+	private String achievements;
+	@OneToOne
+	private Company compay;	
 	
-	//added
-	@ManyToOne
-	private Resume resume1;
-	
-	public Resume getResume1() {
-		return resume1;
+
+	public long getId() {
+		return id;
 	}
-	public void setResume1(Resume resume1) {
-		this.resume1 = resume1;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public Date getStartDate() {
 		return startDate;
@@ -57,11 +59,16 @@ public class WorkExperience {
 	public void setTaskDescription(String taskDescription) {
 		this.taskDescription = taskDescription;
 	}
-	public long getId() {
-		return id;
+	public Company getCompay() {
+		return compay;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setCompay(Company compay) {
+		this.compay = compay;
 	}
-	
+	public String getAchievements() {
+		return achievements;
+	}
+	public void setAchievements(String achievements) {
+		this.achievements = achievements;
+	}
 }

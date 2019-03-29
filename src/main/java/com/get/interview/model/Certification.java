@@ -17,22 +17,21 @@ public class Certification {
 	@Column
 	private String title;
 	@Column
-	private Date completionDate;
-	@Column
 	private Date expirationDate;
 	@Column
+	private Date completionDate;
+	@Column
 	private String description;
-	
-	//added
-	@ManyToOne
-	private Resume resume2;
+	@Column
+	private String link;
 	
 	
-	public Resume getResume2() {
-		return resume2;
+	
+	public long getId() {
+		return id;
 	}
-	public void setResume2(Resume resume2) {
-		this.resume2 = resume2;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -40,17 +39,17 @@ public class Certification {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getCompletionDate() {
-		return completionDate;
-	}
-	public void setCompletionDate(Date completionDate) {
-		this.completionDate = completionDate;
-	}
 	public Date getExpirationDate() {
 		return expirationDate;
 	}
 	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
+	}
+	public Date getCompletionDate() {
+		return completionDate;
+	}
+	public void setCompletionDate(Date completionDate) {
+		this.completionDate = completionDate;
 	}
 	public String getDescription() {
 		return description;
@@ -58,13 +57,10 @@ public class Certification {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getId() {
-		return id;
+	public String getLink() {
+		return link;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setLink(String link) {
+		this.link = link;
 	}
-	
-	
-
 }

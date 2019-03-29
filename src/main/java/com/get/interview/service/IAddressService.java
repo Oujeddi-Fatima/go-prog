@@ -18,6 +18,10 @@ public interface IAddressService {
 	
 	List<Address> findByState(String state);
 
-	
+
+	Address find(Long id);
+
+	Iterable<Address> findAll();
+
 
 }

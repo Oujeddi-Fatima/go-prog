@@ -36,11 +36,7 @@ public class AcademicRecordController {
 		return academicRecordService.findByGpa(gpa);
 	}
 
-	@RequestMapping(value = "{resumeId}", method = RequestMethod.GET)
-	public @ResponseBody List<AcademicRecord> findByResume(@PathVariable Long resumeId){
-		return academicRecordService.findByResume(resumeId);
-		
-	}
+
 	public IAcademicRecordService getAcademicRecordService() {
 		return academicRecordService;
 	}

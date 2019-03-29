@@ -30,8 +30,14 @@ public class ResumeService implements IResumeService{
 
 	@Override
 	public Resume find(long id) {
-		return resumeDao.find(id);
+		return resumeDao.findById(id).get();
 	}
+
+	@Override
+	public Iterable<Resume> find() {
+		return resumeDao.findAll();
+	}
+
 	
 	@Override
 	public List<Resume> findByKey(String keyString) {

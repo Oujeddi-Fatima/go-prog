@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Employer extends User{
 	
@@ -25,70 +27,78 @@ public class Employer extends User{
 	@Column
 	private String workFax;
 	
-	@OneToOne
-	//@JoinTable(name = "company_activity")
-	@JoinColumn(name = "id")
-	private Company company;
+	@JsonManagedReference
+	@OneToMany(mappedBy= "employer")
+	private List<Company> company;
 	
-	@OneToMany(mappedBy = "employee")
-	//@JoinTable(name = "jobpost_activity")
+	
+	@OneToMany(mappedBy = "employer")
 	private List<JobPost> jobPosts;
+
 	
 	
-	public String getDescription() {
-		return Description;
-	}
-	public void setDescription(String description) {
-		Description = description;
-	}
-	public Date getJoinDate() {
+	
+	public final Date getJoinDate() {
 		return joinDate;
 	}
-	public void setJoinDate(Date joinDate) {
+
+	public final void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-	public String getcDescription() {
+
+	public final String getDescription() {
 		return Description;
 	}
-	public void setcDescription(String cDescription) {
-		this.Description = cDescription;
+
+	public final void setDescription(String description) {
+		Description = description;
 	}
-	public String getJobTitle() {
+
+	public final String getJobTitle() {
 		return jobTitle;
 	}
-	public void setJobTitle(String jobTitle) {
+
+	public final void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
-	public Date getExperience() {
+
+	public final Date getExperience() {
 		return experience;
 	}
-	public void setExperience(Date experience) {
+
+	public final void setExperience(Date experience) {
 		this.experience = experience;
 	}
-	public String getWorkPhone() {
+
+	public final String getWorkPhone() {
 		return workPhone;
 	}
-	public void setWorkPhone(String workPhone) {
+
+	public final void setWorkPhone(String workPhone) {
 		this.workPhone = workPhone;
 	}
-	public String getWorkFax() {
+
+	public final String getWorkFax() {
 		return workFax;
 	}
-	public void setWorkFax(String workFax) {
+
+	public final void setWorkFax(String workFax) {
 		this.workFax = workFax;
 	}
-	public Company getCompany() {
+
+	public final List<Company> getCompany() {
 		return company;
 	}
-	public void setCompany(Company company) {
+
+	public final void setCompany(List<Company> company) {
 		this.company = company;
 	}
-	public List<JobPost> getJobPosts() {
+
+	public final List<JobPost> getJobPosts() {
 		return jobPosts;
 	}
-	public void setJobPosts(List<JobPost> jobPosts) {
+
+	public final void setJobPosts(List<JobPost> jobPosts) {
 		this.jobPosts = jobPosts;
 	}
-	
-	
 }

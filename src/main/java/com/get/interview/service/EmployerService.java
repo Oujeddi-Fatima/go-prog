@@ -43,5 +43,11 @@ public class EmployerService implements IEmployerService{
 		this.employerDao = employerDao;
 	}
 
+	@Override
+	public Iterable<Employer> findAll() {
+		// TODO Auto-generated method stub
+		return employerDao.findAll();
+	}
+
 
 }

@@ -35,10 +35,18 @@ public class AddressController {
 		return addressService.find(id);
 		
 	}
-	@RequestMapping(value = "{city}", method = RequestMethod.GET)
-	public @ResponseBody List<Address> findByCity(@PathVariable String city){
-		return addressService.findByCity(city);
+
+	
+	@RequestMapping( method = RequestMethod.GET)
+	public @ResponseBody Iterable<Address> findAll() {
+		return addressService.findAll();
 		
+	}
+	
+	@RequestMapping(value = "{street}", method = RequestMethod.GET)
+	public @ResponseBody List<Address> findByCity(@PathVariable String street){
+		return addressService.findByCity(street);
+	
 	}
 	@RequestMapping(value = "{zip}", method = RequestMethod.GET)
 	public @ResponseBody List<Address> findByZip(@PathVariable String zip){

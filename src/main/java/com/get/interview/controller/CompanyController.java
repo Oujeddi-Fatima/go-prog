@@ -3,6 +3,7 @@ package com.get.interview.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.get.interview.model.BusinessType;
 import com.get.interview.model.Company;
 import com.get.interview.service.ICompanyService;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("company")
 public class CompanyController{
@@ -32,17 +34,22 @@ public class CompanyController{
 	}
 	
 	@RequestMapping(value ="{name}", method = RequestMethod.GET)
-	public @ResponseBody Company getCompany(@PathVariable String name) {	
+
+	public @ResponseBody Company getCompany(@PathVariable String name) {
 		return companyService.findByName(name);
 	}
 	
 	@RequestMapping(value ="{id}", method = RequestMethod.GET)
-	public @ResponseBody Company getCompany(@PathVariable long id) {	
+
+	public @ResponseBody Company getCompany(@PathVariable long id) {
 		return companyService.find(id);
 	}
 	
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<Company> getCompany(){
+
+	public @ResponseBody Iterable<Company> getCompany(){
 		return companyService.findAll();
 	}
 	

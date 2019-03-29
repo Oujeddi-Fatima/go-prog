@@ -52,5 +52,10 @@ public class AddressService implements IAddressService{
 		this.addressDao = addressDao;
 	}
 
+	@Override
+	public Iterable<Address> findAll() {
+		return addressDao.findAll();
+	}
+
 
 }

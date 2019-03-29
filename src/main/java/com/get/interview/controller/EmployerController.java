@@ -27,15 +27,22 @@ public class EmployerController {
     }
 	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void delete(@RequestBody Employer employer) {	
+
+	public void delete(@RequestBody Employer employer) {
 		employerService.delete(employer);
 	}
 	
 	@RequestMapping(value = "{job}",method = RequestMethod.GET)
-	public @ResponseBody Employer find(@PathVariable String job) {
-		return employerService.find(job);	
+	public @ResponseBody Employer find(@RequestBody String job) {
+		return employerService.find(job);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET)
+	public @ResponseBody Iterable<Employer> find() {
+		return employerService.findAll();
+	}
+	
+
 	@RequestMapping(value = "{company}",method = RequestMethod.GET)
 	public @ResponseBody List<Employer> findbyCompany(@PathVariable Company company){
 		return employerService.findbyCompany(company);	

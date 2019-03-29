@@ -12,12 +12,22 @@ public interface IResumeService {
 
 	Resume save(Resume resume);
 	
-	void delete(Resume resume);
+	void delete(long id);
 	
 	Resume find(long id);
+
+	Iterable<Resume> find();
 	
-	List<Resume> findByKey(String keyString);
-	
-	Resume findByUser(long userId);
+//	List<Resume> findByAddress(Address address);
+//	
+//	List<Resume> findByKey(String keyString);
+//	
+//	Resume findByUser(long userId);
+//	
+//	List<Resume> findByExperience(WorkExperience workExperience);
+//	
+//	List<Resume> findByDegree(Degree degree);
+//	
+//	List<Resume> findByCertification(Certification certification);
 	
 }

@@ -13,5 +13,5 @@ public interface IAcademicRecordService {
 	
 	List<AcademicRecord> findByGpa(float gpa);
 	
-	List<AcademicRecord> findByResume(Long resumeId);
+
 }

@@ -35,92 +35,115 @@ public class User{
 	@Column
 	private Date dateOfBirth;
 	@Column
-	private long publicResumeId;
-	
-	@OneToMany(mappedBy = "user")
-	//@JoinTable(name = "resume_activity")
-	private List<Resume> resumes;
-	
+	private String username;
+	@Column 
+	private String password;
 	@Column
     @ElementCollection(targetClass=String.class)
 	private List<String> links;
-	
-	@OneToOne
-	//@JoinTable(name = "aaddress_activity")
-	@JoinColumn(name = "id", referencedColumnName = "id")
-	private Address address;
-	
-	@OneToMany(mappedBy = "applicant")
-	//@JoinTable(name = "applications_activity")
-	private List<Application> applications;
-	
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;		
+	@OneToOne
+	private Resume resume;
+	@OneToMany(mappedBy = "applicant")
+	private List<Application> applications;
+	@OneToMany
+	private List<JobPost> savedJobs;
+	@OneToMany
+	private List<SearchHistory> searchHistory;
+	@OneToMany
+	private List<Note> notes;
 	
-	public long getId() {
+	
+	public final long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public final void setId(long id) {
 		this.id = id;
 	}
-	public String getFirstName() {
+	public final String getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
+	public final void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastName() {
+	public final String getLastName() {
 		return lastName;
 	}
-	public void setLastName(String lastName) {
+	public final void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getEmail() {
+	public final String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public final void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneNumber() {
+	public final String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(String phoneNumber) {
+	public final void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Date getDateOfBirth() {
+	public final Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public final void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public List<Resume> getResumes() {
-		return resumes;
+	public final String getUsername() {
+		return username;
 	}
-	public void setResumes(List<Resume> resumes) {
-		this.resumes = resumes;
+	public final void setUsername(String username) {
+		this.username = username;
 	}
-	public Address getAddress() {
-		return address;
+	public final String getPassword() {
+		return password;
 	}
-	public void setAddress(Address address) {
-		this.address = address;
+	public final void setPassword(String password) {
+		this.password = password;
 	}
-	public long getPublicResumeId() {
-		return publicResumeId;
-	}
-	public void setPublicResumeId(long publicResumeId) {
-		this.publicResumeId = publicResumeId;
-	}
-	public List<String> getLinks() {
+	public final List<String> getLinks() {
 		return links;
 	}
-	public void setLinks(List<String> links) {
+	public final void setLinks(List<String> links) {
 		this.links = links;
 	}
-	public List<Application> getApplications() {
+	public final Address getAddress() {
+		return address;
+	}
+	public final void setAddress(Address address) {
+		this.address = address;
+	}
+	public final Resume getResume() {
+		return resume;
+	}
+	public final void setResume(Resume resume) {
+		this.resume = resume;
+	}
+	public final List<Application> getApplications() {
 		return applications;
 	}
-	public void setApplications(List<Application> applications) {
+	public final void setApplications(List<Application> applications) {
 		this.applications = applications;
 	}
-
+	public final List<JobPost> getSavedJobs() {
+		return savedJobs;
+	}
+	public final void setSavedJobs(List<JobPost> savedJobs) {
+		this.savedJobs = savedJobs;
+	}
+	public final List<SearchHistory> getSearchHistory() {
+		return searchHistory;
+	}
+	public final void setSearchHistory(List<SearchHistory> searchHistory) {
+		this.searchHistory = searchHistory;
+	}
+	public final List<Note> getNotes() {
+		return notes;
+	}
+	public final void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
 }

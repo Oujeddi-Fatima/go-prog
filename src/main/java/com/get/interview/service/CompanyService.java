@@ -37,8 +37,8 @@ public class CompanyService implements ICompanyService{
 	}
 
 	@Override
-	public List<Company> findAll() {
-		return (List<Company>) companyDao.findAll();
+	public Iterable<Company> findAll() {
+		return companyDao.findAll();
 	}
 
 	@Override
