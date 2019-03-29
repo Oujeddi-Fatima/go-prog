@@ -11,7 +11,7 @@ public interface IAcademicRecordService {
 	
 	void delete(AcademicRecord academicRecord);
 	
-	List<AcademicRecord> findAll();
+	List<AcademicRecord> findByGpa(float gpa);
 	
 
 }

@@ -17,41 +17,34 @@ public class CompanyService implements ICompanyService{
 	
 
 	@Override
-	public Company save(Company company) {
-		
+	public Company save(Company company) {	
 		return companyDao.save(company);
 	}
 
 	@Override
-	public void delete(long id) {
-		
+	public void delete(long id) {	
 		companyDao.deleteById(id);
 	}
 
 	@Override
 	public Company findByName(String name) {
-		
-		return null;
+		return companyDao.findByName(name);
 	}
 
 	@Override
 	public Company find(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return companyDao.find(id);
 	}
 
 	@Override
 	public Iterable<Company> findAll() {
-		// TODO Auto-generated method stub
 		return companyDao.findAll();
 	}
 
 	@Override
 	public List<Company> findByBusinessType(BusinessType businessType) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+		return companyDao.findByBusinessType(businessType);
+	}	
 
 	public ICompanyDao getCompanyDao() {
 		return companyDao;

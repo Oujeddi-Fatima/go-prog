@@ -39,13 +39,13 @@ public class CertificationController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<Certification> findAll(){
-		return certificationService.findAll();
+	public @ResponseBody List<Certification> findByReume(@PathVariable long id){
+		return certificationService.findByReume(id);
 		
 	}
 	
 	@RequestMapping(value = "{date}", method = RequestMethod.GET)
-	public Certification findByexpirationDate(@RequestBody Date date) {
+	public @ResponseBody Certification findByexpirationDate(@PathVariable Date date) {
 		return certificationService.findByexpirationDate(date);
 		
 	}

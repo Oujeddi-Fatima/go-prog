@@ -8,6 +8,8 @@ import com.get.interview.model.User;
 public interface IUserService {
 
 	User save(User user);
+	
+	void delete(User user);
 
 	List<User> findAll();
 
@@ -15,8 +17,6 @@ public interface IUserService {
 	
 	User update(User user);
 	
-	void delete(User user);
-	
-	List<User> findByAddress(Address location);	
+	List<User> findByfirstName(String name);	
 
 }

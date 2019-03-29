@@ -25,8 +25,8 @@ public class AcademicRecordService implements IAcademicRecordService{
 	}
 
 	@Override
-	public List<AcademicRecord> findAll() {
-		return (List<AcademicRecord>) academicRecordDao.findAll();
+	public List<AcademicRecord> findByGpa(float gpa) {
+		return academicRecordDao.findByGpa(gpa);
 	}
 
 

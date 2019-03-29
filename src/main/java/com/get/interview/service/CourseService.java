@@ -16,9 +16,7 @@ public class CourseService implements ICourseService {
 
 	@Override
 	public void save(Course course) {
-
 		courseDao.save(course);
-
 	}
 
 	@Override

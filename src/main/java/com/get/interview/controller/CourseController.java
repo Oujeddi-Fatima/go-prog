@@ -20,21 +20,20 @@ public class CourseController {
 	private ICourseService courseService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void save(@RequestBody Course course) {
-		
+	public void save(@RequestBody Course course) {	
 		courseService.save(course);
 	}
+	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void delete(@RequestBody long id) {
-		
+	public void delete(@RequestBody long id) {	
 		courseService.delete(id);
 	}
+	
 	@RequestMapping(value ="{title}", method = RequestMethod.GET)
 	public List<Course> find(@PathVariable String title){
 		return courseService.findByTitle(title);
 	}
 	
-
 	public ICourseService getCourseService() {
 		return courseService;
 	}

@@ -27,7 +27,6 @@ public class AddressController {
 	
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void delete(@RequestBody Address address) {
-		
 		addressService.delete(address);
 	}
 	
@@ -36,6 +35,7 @@ public class AddressController {
 		return addressService.find(id);
 		
 	}
+
 	
 	@RequestMapping( method = RequestMethod.GET)
 	public @ResponseBody Iterable<Address> findAll() {
@@ -46,7 +46,7 @@ public class AddressController {
 	@RequestMapping(value = "street/{street}", method = RequestMethod.GET)
 	public @ResponseBody List<Address> findByCity(@PathVariable String street){
 		return addressService.findByCity(street);
-		
+	
 	}
 	@RequestMapping(value = "zip/{zip}", method = RequestMethod.GET)
 	public @ResponseBody List<Address> findByZip(@PathVariable String zip){

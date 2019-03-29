@@ -32,9 +32,8 @@ public class AcademicRecordController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<AcademicRecord> findAll(){
-	
-		return academicRecordService.findAll();
+	public @ResponseBody List<AcademicRecord> findByGpa(@PathVariable float gpa){
+		return academicRecordService.findByGpa(gpa);
 	}
 
 

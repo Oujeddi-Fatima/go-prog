@@ -26,31 +26,27 @@ public class JobPostController {
 	private IJobPostService jobpostService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public void saveUser(@RequestBody JobPost jobPost){
+	public void saveUser(@RequestBody JobPost jobPost){	
 		jobpostService.save(jobPost);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE)
-	public void deleteUser(@RequestBody Long id) {
-		
+	public void deleteUser(@RequestBody Long id) {	
 		jobpostService.delete(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody Iterable<JobPost> getUsers(){
-		
 		return jobpostService.findAll();	
 	}
 	
 	@RequestMapping(value = "{address}", method = RequestMethod.GET)
-	public @ResponseBody List<JobPost> getUsers(@PathVariable Address address){
-		
+	public @ResponseBody List<JobPost> getUsers(@PathVariable Address address){	
 		return jobpostService.findByAddress(address);
 	}
 	
 	@RequestMapping(value = "{keyString}", method = RequestMethod.GET)
-	public @ResponseBody List<JobPost> getUsers(@PathVariable String keyString){
-		
+	public @ResponseBody List<JobPost> getUsers(@PathVariable String keyString){	
 		return jobpostService.findByKey(keyString);
 	}
 
@@ -61,7 +57,6 @@ public class JobPostController {
 	public void setJobpostService(IJobPostService jobpostService) {
 		this.jobpostService = jobpostService;
 	}
-	
-	
+		
 
 }
