@@ -16,9 +16,7 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public void save(Course course) {
-		
 		courseDao.save(course);
-		
 	}
 
 	@Override
@@ -27,9 +25,8 @@ public class CourseService implements ICourseService{
 	}
 
 	@Override
-	public List<Course> find(String title) {
-		
-		return null;
+	public List<Course> find(String title) {	
+		return courseDao.find(title);
 	}
 	
 	public ICourseDao getCourseDao() {

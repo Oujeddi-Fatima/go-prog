@@ -35,6 +35,14 @@ public class ResumeController {
 		return resumeService.find(id);
 	}
 	
+
+	@RequestMapping(value="{keyString}", method = RequestMethod.GET)
+	public @ResponseBody List<Resume> getUsers(@PathVariable String keyString) {
+		return resumeService.findByKey(keyString);
+	}
+	
+	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody Iterable<Resume> getResumes() {
 		return resumeService.find();
@@ -42,6 +50,7 @@ public class ResumeController {
 	
 	
 	
+
 	public IResumeService getResumeService() {
 		return resumeService;
 	}

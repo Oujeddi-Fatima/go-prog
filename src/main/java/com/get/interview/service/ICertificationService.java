@@ -13,10 +13,8 @@ public interface ICertificationService {
 	
 	Certification findById(long id);
 	
-	List<Certification> findAll();
+	List<Certification> findByReume(long id);
 	
-	Certification findByexpirationDate(Date date);
-	
-	
+	Certification findByexpirationDate(Date date);	
 
 }

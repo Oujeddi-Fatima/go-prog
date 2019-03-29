@@ -16,35 +16,28 @@ public class JobPostService implements IJobPostService{
 	private IJobPostDao jobpostDao;
 
 	@Override
-	public JobPost save(JobPost jobPost) {
-		
+	public JobPost save(JobPost jobPost) {	
 		return jobpostDao.save(jobPost);
 	}
 
 	@Override
-	public void delete(Long id) {
-		
-		 jobpostDao.deleteById(id);
-		
+	public void delete(Long id) {	
+		 jobpostDao.deleteById(id);	
 	}
 
 	@Override
 	public List<JobPost> findAll() {
-		return null;
+		return (List<JobPost>) jobpostDao.findAll();
 	}
 
 	@Override
 	public List<JobPost> findByAddress(Address address) {
-		// TODO Auto-generated method stub
-		return  null;
+		return  jobpostDao.findByAddress(address);
 	}
 
 	@Override
 	public List<JobPost> findByKey(String keyString) {
-		// TODO Auto-generated method stub
-		return null;
-		
-		
+		return jobpostDao.findByKey(keyString);
 	}
 
 	public IJobPostDao getJobpostDao() {
