@@ -10,14 +10,11 @@ public interface IAddressService {
 	
 	void delete(Address address);
 	
-	Address find(Long id);
-	
 	List<Address> findByCity(String city);
 	
 	List<Address> findByZip(String zip);
 	
 	List<Address> findByState(String state);
-
 
 	Address find(Long id);
 

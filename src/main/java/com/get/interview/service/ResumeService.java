@@ -24,11 +24,6 @@ public class ResumeService implements IResumeService{
 	}
 
 	@Override
-	public void delete(Resume resume) {
-		resumeDao.delete(resume);		
-	}
-
-	@Override
 	public Resume find(long id) {
 		return resumeDao.findById(id).get();
 	}
@@ -55,6 +50,11 @@ public class ResumeService implements IResumeService{
 
 	public void setResumeDao(IResumeDao resumeDao) {
 		this.resumeDao = resumeDao;
+	}
+
+	@Override
+	public void delete(long id) {
+		this.resumeDao.deleteById(id);
 	}
 
 

@@ -20,9 +20,9 @@ public interface IResumeService {
 	
 //	List<Resume> findByAddress(Address address);
 //	
-//	List<Resume> findByKey(String keyString);
+	List<Resume> findByKey(String keyString);
 //	
-//	Resume findByUser(long userId);
+	Resume findByUser(long userId);
 //	
 //	List<Resume> findByExperience(WorkExperience workExperience);
 //	
