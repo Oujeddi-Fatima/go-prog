@@ -12,8 +12,8 @@ import com.get.interview.model.Certification;
 @Repository
 public interface ICertificationDao extends CrudRepository<Certification, Long>{
 	
-	@Query(value = "FROM Certification WHERE resume2.id=: id")
-	public List<Certification> findByReume(long id);
+	//@Query(value = "FROM Certification WHERE resume2.id=: id")
+	//public List<Certification> findByReume(long id);
 	
 	@Query(value = "FROM Certification WHERE expirationDate= : date")
 	public Certification findByexpirationDate(Date date);

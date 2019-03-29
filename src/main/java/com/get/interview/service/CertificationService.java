@@ -31,10 +31,10 @@ public class CertificationService implements ICertificationService{
 		return certificationDao.findById(id).get();
 	}
 	
-	@Override
-	public List<Certification> findByReume(long id) {
-		return certificationDao.findByReume(id);
-	}
+//	@Override
+//	public List<Certification> findByReume(long id) {
+//		return certificationDao.findByReume(id);
+//	}
 
 	@Override
 	public Certification findByexpirationDate(Date date) {

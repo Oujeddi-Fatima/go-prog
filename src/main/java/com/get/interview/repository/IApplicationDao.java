@@ -11,7 +11,7 @@ import com.get.interview.model.Application;
 @Repository
 public interface IApplicationDao extends CrudRepository<Application, Long>{
 	
-	@Query(value= "FROM Application WHERE app.id= :jobPostId")
+	@Query(value= "FROM Application WHERE jobPost.id= :jobPostId")
 	public List<Application> findByJobPost(Long jobPostId);
 	
 	@Query(value= "FROM Application WHERE applicant.id=: userId")
