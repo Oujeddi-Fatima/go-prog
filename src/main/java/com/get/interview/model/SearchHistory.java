@@ -15,16 +15,16 @@ public class SearchHistory {
 	private String SearchKeyWords;
 	
 	
-	public final long getId() {
+	public  long getId() {
 		return id;
 	}
-	public final void setId(long id) {
+	public  void setId(long id) {
 		this.id = id;
 	}
-	public final String getSearchKeyWords() {
+	public  String getSearchKeyWords() {
 		return SearchKeyWords;
 	}
-	public final void setSearchKeyWords(String searchKeyWords) {
+	public  void setSearchKeyWords(String searchKeyWords) {
 		SearchKeyWords = searchKeyWords;
 	}
 	

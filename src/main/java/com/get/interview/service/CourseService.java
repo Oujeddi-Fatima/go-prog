@@ -9,16 +9,16 @@ import com.get.interview.model.Course;
 import com.get.interview.repository.ICourseDao;
 
 @Service
-public class CourseService implements ICourseService{
-	
+public class CourseService implements ICourseService {
+
 	@Autowired
-	private ICourseDao courseDao; 
+	private ICourseDao courseDao;
 
 	@Override
 	public void save(Course course) {
-		
+
 		courseDao.save(course);
-		
+
 	}
 
 	@Override
@@ -27,11 +27,10 @@ public class CourseService implements ICourseService{
 	}
 
 	@Override
-	public List<Course> find(String title) {
-		
-		return null;
+	public List<Course> findByTitle(String title) {
+		return courseDao.findByTitle(title);
 	}
-	
+
 	public ICourseDao getCourseDao() {
 		return courseDao;
 	}

@@ -53,107 +53,107 @@ public class Company {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Employer employer;
 
-	public final long getId() {
+	public  long getId() {
 		return id;
 	}
 
-	public final void setId(long id) {
+	public  void setId(long id) {
 		this.id = id;
 	}
 
-	public final String getName() {
+	public  String getName() {
 		return name;
 	}
 
-	public final void setName(String name) {
+	public  void setName(String name) {
 		this.name = name;
 	}
 
-	public final String getInfoNumber() {
+	public  String getInfoNumber() {
 		return infoNumber;
 	}
 
-	public final void setInfoNumber(String infoNumber) {
+	public  void setInfoNumber(String infoNumber) {
 		this.infoNumber = infoNumber;
 	}
 
-	public final String getPrimeObjective() {
+	public  String getPrimeObjective() {
 		return primeObjective;
 	}
 
-	public final void setPrimeObjective(String primeObjective) {
+	public  void setPrimeObjective(String primeObjective) {
 		this.primeObjective = primeObjective;
 	}
 
-	public final String getVision() {
+	public  String getVision() {
 		return vision;
 	}
 
-	public final void setVision(String vision) {
+	public  void setVision(String vision) {
 		this.vision = vision;
 	}
 
-	public final String getMission() {
+	public  String getMission() {
 		return mission;
 	}
 
-	public final void setMission(String mission) {
+	public  void setMission(String mission) {
 		this.mission = mission;
 	}
 
-	public final Date getStartDate() {
+	public  Date getStartDate() {
 		return startDate;
 	}
 
-	public final void setStartDate(Date startDate) {
+	public  void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public final String getFax() {
+	public  String getFax() {
 		return fax;
 	}
 
-	public final void setFax(String fax) {
+	public  void setFax(String fax) {
 		this.fax = fax;
 	}
 
-	public final BusinessType getBusinessType() {
+	public  BusinessType getBusinessType() {
 		return businessType;
 	}
 
-	public final void setBusinessType(BusinessType businessType) {
+	public  void setBusinessType(BusinessType businessType) {
 		this.businessType = businessType;
 	}
 
-	public final List<String> getPhone() {
+	public  List<String> getPhone() {
 		return phone;
 	}
 
-	public final void setPhone(List<String> phone) {
+	public  void setPhone(List<String> phone) {
 		this.phone = phone;
 	}
 
-	public final List<String> getContacts() {
+	public  List<String> getContacts() {
 		return contacts;
 	}
 
-	public final void setContacts(List<String> contacts) {
+	public  void setContacts(List<String> contacts) {
 		this.contacts = contacts;
 	}
 
-	public final Address getAddress() {
+	public  Address getAddress() {
 		return address;
 	}
 
-	public final void setAddress(Address address) {
+	public  void setAddress(Address address) {
 		this.address = address;
 	}
 
-	public final Employer getEmployer() {
+	public  Employer getEmployer() {
 		return employer;
 	}
 
-	public final void setEmployer(Employer employer) {
+	public  void setEmployer(Employer employer) {
 		this.employer = employer;
 	}
 

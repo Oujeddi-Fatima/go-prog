@@ -56,94 +56,94 @@ public class User{
 	private List<Note> notes;
 	
 	
-	public final long getId() {
+	public  long getId() {
 		return id;
 	}
-	public final void setId(long id) {
+	public  void setId(long id) {
 		this.id = id;
 	}
-	public final String getFirstName() {
+	public  String getFirstName() {
 		return firstName;
 	}
-	public final void setFirstName(String firstName) {
+	public  void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public final String getLastName() {
+	public  String getLastName() {
 		return lastName;
 	}
-	public final void setLastName(String lastName) {
+	public  void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public final String getEmail() {
+	public  String getEmail() {
 		return email;
 	}
-	public final void setEmail(String email) {
+	public  void setEmail(String email) {
 		this.email = email;
 	}
-	public final String getPhoneNumber() {
+	public  String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public final void setPhoneNumber(String phoneNumber) {
+	public  void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public final Date getDateOfBirth() {
+	public  Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public final void setDateOfBirth(Date dateOfBirth) {
+	public  void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public final String getUsername() {
+	public  String getUsername() {
 		return username;
 	}
-	public final void setUsername(String username) {
+	public  void setUsername(String username) {
 		this.username = username;
 	}
-	public final String getPassword() {
+	public  String getPassword() {
 		return password;
 	}
-	public final void setPassword(String password) {
+	public  void setPassword(String password) {
 		this.password = password;
 	}
-	public final List<String> getLinks() {
+	public  List<String> getLinks() {
 		return links;
 	}
-	public final void setLinks(List<String> links) {
+	public  void setLinks(List<String> links) {
 		this.links = links;
 	}
-	public final Address getAddress() {
+	public  Address getAddress() {
 		return address;
 	}
-	public final void setAddress(Address address) {
+	public  void setAddress(Address address) {
 		this.address = address;
 	}
-	public final Resume getResume() {
+	public  Resume getResume() {
 		return resume;
 	}
-	public final void setResume(Resume resume) {
+	public  void setResume(Resume resume) {
 		this.resume = resume;
 	}
-	public final List<Application> getApplications() {
+	public  List<Application> getApplications() {
 		return applications;
 	}
-	public final void setApplications(List<Application> applications) {
+	public  void setApplications(List<Application> applications) {
 		this.applications = applications;
 	}
-	public final List<JobPost> getSavedJobs() {
+	public  List<JobPost> getSavedJobs() {
 		return savedJobs;
 	}
-	public final void setSavedJobs(List<JobPost> savedJobs) {
+	public  void setSavedJobs(List<JobPost> savedJobs) {
 		this.savedJobs = savedJobs;
 	}
-	public final List<SearchHistory> getSearchHistory() {
+	public  List<SearchHistory> getSearchHistory() {
 		return searchHistory;
 	}
-	public final void setSearchHistory(List<SearchHistory> searchHistory) {
+	public  void setSearchHistory(List<SearchHistory> searchHistory) {
 		this.searchHistory = searchHistory;
 	}
-	public final List<Note> getNotes() {
+	public  List<Note> getNotes() {
 		return notes;
 	}
-	public final void setNotes(List<Note> notes) {
+	public  void setNotes(List<Note> notes) {
 		this.notes = notes;
 	}
 }

@@ -15,16 +15,16 @@ public class Note {
 	
 	
 	
-	public final long getId() {
+	public  long getId() {
 		return id;
 	}
-	public final void setId(long id) {
+	public  void setId(long id) {
 		this.id = id;
 	}
-	public final String getNote() {
+	public  String getNote() {
 		return note;
 	}
-	public final void setNote(String note) {
+	public  void setNote(String note) {
 		this.note = note;
 	}
 	

@@ -3,6 +3,7 @@ package com.get.interview.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.get.interview.model.Address;
+import com.get.interview.model.BusinessType;
 import com.get.interview.model.JobPost;
 import com.get.interview.service.IJobPostService;
 
+
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("jobpost")
 public class JobPostController {
@@ -23,7 +27,6 @@ public class JobPostController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public void saveUser(@RequestBody JobPost jobPost){
-		
 		jobpostService.save(jobPost);
 	}
 	
@@ -34,7 +37,7 @@ public class JobPostController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody List<JobPost> getUsers(@PathVariable JobPost jobpost){
+	public @ResponseBody Iterable<JobPost> getUsers(){
 		
 		return jobpostService.findAll();	
 	}

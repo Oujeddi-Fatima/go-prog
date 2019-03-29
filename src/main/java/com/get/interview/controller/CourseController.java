@@ -31,8 +31,7 @@ public class CourseController {
 	}
 	@RequestMapping(value ="{title}", method = RequestMethod.GET)
 	public List<Course> find(@PathVariable String title){
-		
-		return courseService.find(title);
+		return courseService.findByTitle(title);
 	}
 	
 

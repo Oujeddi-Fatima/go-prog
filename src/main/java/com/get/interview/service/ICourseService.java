@@ -10,5 +10,5 @@ public interface ICourseService {
 	
 	void delete(long id);
 	
-	List<Course> find(String title);
+	List<Course> findByTitle(String title);
 }

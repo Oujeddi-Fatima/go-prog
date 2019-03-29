@@ -11,9 +11,11 @@ public interface IJobPostService {
 	
 	void delete(Long id);
 	
-	List<JobPost> findAll();
+	Iterable<JobPost> findAll();
 	
 	List<JobPost> findByAddress(Address address);
 	
 	List<JobPost> findByKey(String keyString);
+	
+	Iterable<JobPost> findByUserId(long id);
 }

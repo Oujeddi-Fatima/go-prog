@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class JobPost {
 	
@@ -36,110 +38,110 @@ public class JobPost {
 	private Date closeDate;
 	@Column
 	private Long estimatedSalary;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Address address;	
-	
-	@ManyToOne
+	@JsonBackReference
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Employer employer;
-	@OneToMany(mappedBy ="jobPost")
+	@OneToMany(mappedBy ="jobPost",cascade=CascadeType.ALL)
 	private List<Application> applications;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Company company;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<Skill> skillSet;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<Question> questions;
 	
 	
-	public final long getId() {
+	public  long getId() {
 		return id;
 	}
-	public final void setId(long id) {
+	public  void setId(long id) {
 		this.id = id;
 	}
-	public final String getTitle() {
+	public  String getTitle() {
 		return title;
 	}
-	public final void setTitle(String title) {
+	public  void setTitle(String title) {
 		this.title = title;
 	}
-	public final String getLevel() {
+	public  String getLevel() {
 		return level;
 	}
-	public final void setLevel(String level) {
+	public  void setLevel(String level) {
 		this.level = level;
 	}
-	public final String getDescription() {
+	public  String getDescription() {
 		return description;
 	}
-	public final void setDescription(String description) {
+	public  void setDescription(String description) {
 		this.description = description;
 	}
-	public final String getRequirement() {
+	public  String getRequirement() {
 		return requirement;
 	}
-	public final void setRequirement(String requirement) {
+	public  void setRequirement(String requirement) {
 		this.requirement = requirement;
 	}
-	public final String getRequiredQalification() {
+	public  String getRequiredQalification() {
 		return requiredQalification;
 	}
-	public final void setRequiredQalification(String requiredQalification) {
+	public  void setRequiredQalification(String requiredQalification) {
 		this.requiredQalification = requiredQalification;
 	}
-	public final Date getPostDate() {
+	public  Date getPostDate() {
 		return postDate;
 	}
-	public final void setPostDate(Date postDate) {
+	public  void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
-	public final Date getCloseDate() {
+	public  Date getCloseDate() {
 		return closeDate;
 	}
-	public final void setCloseDate(Date closeDate) {
+	public  void setCloseDate(Date closeDate) {
 		this.closeDate = closeDate;
 	}
-	public final Long getEstimatedSalary() {
+	public  Long getEstimatedSalary() {
 		return estimatedSalary;
 	}
-	public final void setEstimatedSalary(Long estimatedSalary) {
+	public  void setEstimatedSalary(Long estimatedSalary) {
 		this.estimatedSalary = estimatedSalary;
 	}
-	public final Address getAddress() {
+	public  Address getAddress() {
 		return address;
 	}
-	public final void setAddress(Address address) {
+	public  void setAddress(Address address) {
 		this.address = address;
 	}
-	public final Employer getEmployer() {
+	public  Employer getEmployer() {
 		return employer;
 	}
-	public final void setEmployer(Employer employer) {
+	public  void setEmployer(Employer employer) {
 		this.employer = employer;
 	}
-	public final List<Application> getApplications() {
+	public  List<Application> getApplications() {
 		return applications;
 	}
-	public final void setApplications(List<Application> applications) {
+	public  void setApplications(List<Application> applications) {
 		this.applications = applications;
 	}
-	public final Company getCompany() {
+	public  Company getCompany() {
 		return company;
 	}
-	public final void setCompany(Company company) {
+	public  void setCompany(Company company) {
 		this.company = company;
 	}
-	public final List<Skill> getSkillSet() {
+	public  List<Skill> getSkillSet() {
 		return skillSet;
 	}
-	public final void setSkillSet(List<Skill> skillSet) {
+	public  void setSkillSet(List<Skill> skillSet) {
 		this.skillSet = skillSet;
 	}
-	public final List<Question> getQuestions() {
+	public  List<Question> getQuestions() {
 		return questions;
 	}
-	public final void setQuestions(List<Question> questions) {
+	public  void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 }

@@ -1,6 +1,7 @@
 package com.get.interview.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Application {
@@ -25,42 +27,49 @@ public class Application {
 	private JobPost jobPost;
 	@ManyToOne
 	private User applicant;
+	@OneToMany
+	private List<Question> answers;
 	
-	
-	public final long getId() {
+	public  long getId() {
 		return id;
 	}
-	public final void setId(long id) {
+	public  void setId(long id) {
 		this.id = id;
 	}
-	public final Date getSubmissionDate() {
+	public  Date getSubmissionDate() {
 		return submissionDate;
 	}
-	public final void setSubmissionDate(Date submissionDate) {
+	public  void setSubmissionDate(Date submissionDate) {
 		this.submissionDate = submissionDate;
 	}
-	public final int getScore() {
+	public  int getScore() {
 		return score;
 	}
-	public final void setScore(int score) {
+	public  void setScore(int score) {
 		this.score = score;
 	}
-	public final ApplicationStatus getStatus() {
+	public  ApplicationStatus getStatus() {
 		return status;
 	}
-	public final void setStatus(ApplicationStatus status) {
+	public  void setStatus(ApplicationStatus status) {
 		this.status = status;
 	}
-	public final JobPost getJobPost() {
+	public  JobPost getJobPost() {
 		return jobPost;
 	}
-	public final void setJobPost(JobPost jobPost) {
+	public  void setJobPost(JobPost jobPost) {
 		this.jobPost = jobPost;
 	}
-	public final User getApplicant() {
+	public  User getApplicant() {
 		return applicant;
 	}
-	public final void setApplicant(User applicant) {
+	public  void setApplicant(User applicant) {
 		this.applicant = applicant;
+	}
+	public List<Question> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Question> answers) {
+		this.answers = answers;
 	}
 }

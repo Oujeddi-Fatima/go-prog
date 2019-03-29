@@ -7,5 +7,6 @@ import com.get.interview.model.JobPost;
 
 @Repository
 public interface IJobPostDao extends CrudRepository<JobPost, Long>{
-
+	
+	Iterable<JobPost> findByEmployerId(long id);
 }
