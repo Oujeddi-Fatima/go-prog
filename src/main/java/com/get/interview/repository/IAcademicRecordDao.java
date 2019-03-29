@@ -11,7 +11,6 @@ import com.get.interview.model.AcademicRecord;
 @Repository
 public interface IAcademicRecordDao extends CrudRepository<AcademicRecord, Long>{
 
-	@Query(value="FROM AcademicRecord WHERE resume.id =:resumeId")
-	List<AcademicRecord> findByResume(Long resumeId);
+
 	
 }

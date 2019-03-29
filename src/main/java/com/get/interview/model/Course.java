@@ -15,17 +15,10 @@ public class Course {
 	private long id;
 	@Column
 	private String title;
+	@Column
+	private String code;
 	
-	//added 
-	@ManyToOne
-	private AcademicRecord record;
 	
-	public AcademicRecord getRecord() {
-		return record;
-	}
-	public void setRecord(AcademicRecord record) {
-		this.record = record;
-	}
 	public long getId() {
 		return id;
 	}
@@ -38,6 +31,10 @@ public class Course {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 }

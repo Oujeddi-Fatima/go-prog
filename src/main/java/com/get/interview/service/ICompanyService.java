@@ -15,7 +15,7 @@ public interface ICompanyService {
 	
 	Company find(long id);
 	
-	List<Company> findAll();
+	Iterable<Company> findAll();
 	
 	List<Company> findByBusinessType(BusinessType businessType);
 }
