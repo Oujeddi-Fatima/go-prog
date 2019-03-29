@@ -26,8 +26,8 @@ public class JobPostService implements IJobPostService{
 	}
 
 	@Override
-	public List<JobPost> findAll() {
-		return (List<JobPost>) jobpostDao.findAll();
+  public Iterable<JobPost> findAll() {
+		return jobpostDao.findAll();
 	}
 
 	@Override
@@ -46,6 +46,12 @@ public class JobPostService implements IJobPostService{
 
 	public void setJobpostDao(IJobPostDao jobpostDao) {
 		this.jobpostDao = jobpostDao;
+	}
+
+	@Override
+	public Iterable<JobPost> findByUserId(long id) {
+		// TODO Auto-generated method stub
+		return jobpostDao.findByEmployerId(id);
 	}
 
 }

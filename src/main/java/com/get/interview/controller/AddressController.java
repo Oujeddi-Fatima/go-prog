@@ -43,17 +43,17 @@ public class AddressController {
 		
 	}
 	
-	@RequestMapping(value = "{street}", method = RequestMethod.GET)
+	@RequestMapping(value = "street/{street}", method = RequestMethod.GET)
 	public @ResponseBody List<Address> findByCity(@PathVariable String street){
 		return addressService.findByCity(street);
 	
 	}
-	@RequestMapping(value = "{zip}", method = RequestMethod.GET)
+	@RequestMapping(value = "zip/{zip}", method = RequestMethod.GET)
 	public @ResponseBody List<Address> findByZip(@PathVariable String zip){
 		return addressService.findByZip(zip);
 		
 	}
-	@RequestMapping(value = "{state}", method = RequestMethod.GET)
+	@RequestMapping(value = "state/{state}", method = RequestMethod.GET)
 	public @ResponseBody List<Address> findByState(@PathVariable String state){
 		return addressService.findByState(state);
 		

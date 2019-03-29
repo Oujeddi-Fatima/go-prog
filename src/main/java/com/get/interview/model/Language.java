@@ -15,19 +15,19 @@ public class Language {
 	@Column
 	private String language;
 
-	public final long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public final void setId(long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public final String getLanguage() {
+	public String getLanguage() {
 		return language;
 	}
 
-	public final void setLanguage(String language) {
+	public void setLanguage(String language) {
 		this.language = language;
 	}
 	
