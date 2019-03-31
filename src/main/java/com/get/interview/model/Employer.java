@@ -1,4 +1,5 @@
 package com.get.interview.model;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,10 +13,10 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-public class Employer extends User{
-	
+public class Employer extends User {
+
 	@Column
-	private Date joinDate;	
+	private Date joinDate;
 	@Column
 	private String Description;
 	@Column
@@ -26,18 +27,15 @@ public class Employer extends User{
 	private String workPhone;
 	@Column
 	private String workFax;
-	
+
 	@JsonManagedReference
-	@OneToMany(mappedBy= "employer")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employer")
 	private List<Company> company;
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "employer")
 	private List<JobPost> jobPosts;
 
-	
-	
-	
 	public Date getJoinDate() {
 		return joinDate;
 	}

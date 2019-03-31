@@ -66,11 +66,14 @@ public class UserController {
 				.withRel("savedJobs");
 		Link searchHistoryLink = linkTo(methodOn(UserController.class).getUserSearchHistory(user.getUserId()))
 				.withRel("searchHistory");
+		Link isEmployer = linkTo(methodOn(EmployerController.class).find(user.getUserId()))
+				.withRel("employer");
 		user.add(savedJobsLink);
 		user.add(searchHistoryLink);
 		user.add(resumeLink);
 		user.add(applicationsLink);
 		user.add(applicationsNotes);
+		user.add(isEmployer);
 		return user;
 	}
 
@@ -85,11 +88,14 @@ public class UserController {
 				.withRel("savedJobs");
 		Link searchHistoryLink = linkTo(methodOn(UserController.class).getUserSearchHistory(user.getUserId()))
 				.withRel("searchHistory");
+		Link isEmployer = linkTo(methodOn(EmployerController.class).find(user.getUserId()))
+				.withRel("employer");
 		user.add(savedJobsLink);
 		user.add(searchHistoryLink);
 		user.add(resumeLink);
 		user.add(applicationsLink);
 		user.add(applicationsNotes);
+		user.add(isEmployer);
 		return user;
 	}
 

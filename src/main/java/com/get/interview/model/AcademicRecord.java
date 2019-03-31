@@ -2,6 +2,7 @@ package com.get.interview.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,8 @@ public class AcademicRecord {
 	private float gpa;
 	@OneToMany
 	private List<Course> courses;
-	@OneToOne
+	
+	@OneToOne(cascade=CascadeType.ALL)
 	private School school;
 	
 	

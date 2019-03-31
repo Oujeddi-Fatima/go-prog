@@ -10,13 +10,17 @@ import com.get.interview.model.Employer;
 import com.get.interview.repository.IEmployerDao;
 
 @Service
-public class EmployerService implements IEmployerService{
+public class EmployerService implements IEmployerService {
 
 	@Autowired
 	private IEmployerDao employerDao;
-	
+
 	@Override
 	public void save(Employer employer) {
+		if(employer.getCompany() != null)
+		employer.getCompany().stream().forEach((company) -> {
+			company.setEmployer(employer);
+		});
 		employerDao.save(employer);
 	}
 
@@ -26,7 +30,7 @@ public class EmployerService implements IEmployerService{
 	}
 
 	@Override
-	public Employer find(String job) {	
+	public Employer find(String job) {
 		return employerDao.find(job);
 	}
 
@@ -34,7 +38,7 @@ public class EmployerService implements IEmployerService{
 	public List<Employer> findbyCompany(Company company) {
 		return employerDao.findbyCompany(company);
 	}
-	
+
 	public IEmployerDao getEmployerDao() {
 		return employerDao;
 	}
@@ -49,5 +53,12 @@ public class EmployerService implements IEmployerService{
 		return employerDao.findAll();
 	}
 
+	@Override
+	public Employer findById(long id) {
+		if (employerDao.findById(id).isPresent())
+			return employerDao.findById(id).get();
+		else
+			return null;
+	}
 
 }
