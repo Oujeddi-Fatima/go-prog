@@ -12,42 +12,45 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.get.interview.model.Address;
-import com.get.interview.model.BusinessType;
 import com.get.interview.model.JobPost;
 import com.get.interview.service.IJobPostService;
-
 
 @CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("jobpost")
 public class JobPostController {
-	
+
 	@Autowired
 	private IJobPostService jobpostService;
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-	public void saveUser(@RequestBody JobPost jobPost){	
+	public void saveJobPost(@RequestBody JobPost jobPost) {
 		jobpostService.save(jobPost);
 	}
-	
-	@RequestMapping(method = RequestMethod.DELETE)
-	public void deleteUser(@RequestBody Long id) {	
+
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	public void deleteJobPost(@PathVariable Long id) {
 		jobpostService.delete(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody Iterable<JobPost> getUsers(){
-		return jobpostService.findAll();	
+	@RequestMapping(value = "{id}", method = RequestMethod.GET)
+	public JobPost getJobPostById(@PathVariable Long id) {
+		return jobpostService.findById(id);
 	}
-	
-	@RequestMapping(value = "{address}", method = RequestMethod.GET)
-	public @ResponseBody List<JobPost> getUsers(@PathVariable Address address){	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public @ResponseBody Iterable<JobPost> getJobPosts() {
+		return jobpostService.findAll();
+	}
+
+	@RequestMapping(value = "address", method = RequestMethod.POST)
+	public @ResponseBody List<JobPost> getJobPosts(@RequestBody Address address) {
 		return jobpostService.findByAddress(address);
 	}
-	
-	@RequestMapping(value = "{keyString}", method = RequestMethod.GET)
-	public @ResponseBody List<JobPost> getUsers(@PathVariable String keyString){	
-		return jobpostService.findByKey(keyString);
+
+	@RequestMapping(value = "title/{title}", method = RequestMethod.GET)
+	public @ResponseBody List<JobPost> findByTitle(@PathVariable String title) {
+		return jobpostService.findByTitle(title);
 	}
 
 	public IJobPostService getJobpostService() {
@@ -57,6 +60,5 @@ public class JobPostController {
 	public void setJobpostService(IJobPostService jobpostService) {
 		this.jobpostService = jobpostService;
 	}
-		
 
 }

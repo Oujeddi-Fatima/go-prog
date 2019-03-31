@@ -11,18 +11,22 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
-public class Resume {
+public class Resume extends ResourceSupport{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long resumeId;
 	@Column
 	private String title;
 	@Column
 	private String description;
-
-	@OneToOne
+	@JsonBackReference
+	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 
 	@Column
@@ -44,12 +48,13 @@ public class Resume {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Skill> skills;
 
-	public long getId() {
-		return id;
+
+	public long getResumeId() {
+		return resumeId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setResumeId(long resumeId) {
+		this.resumeId = resumeId;
 	}
 
 	public String getTitle() {

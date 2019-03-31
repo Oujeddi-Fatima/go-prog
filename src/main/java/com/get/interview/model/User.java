@@ -16,14 +16,18 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class User{
+public class User extends ResourceSupport{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "id")
-	private long id;
+	private long userId;
 	@Column
 	private String firstName;
 	@Column
@@ -40,11 +44,12 @@ public class User{
 	private String password;
 	@Column
     @ElementCollection(targetClass=String.class)
-	private List<String> links;
+	private List<String> userLinks;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private Address address;		
-	@OneToOne
+	private Address address;	
+	@JsonManagedReference
+	@OneToOne(cascade = CascadeType.ALL)
 	private Resume resume;
 	@OneToMany(mappedBy = "applicant")
 	private List<Application> applications;
@@ -56,11 +61,12 @@ public class User{
 	private List<Note> notes;
 	
 	
-	public  long getId() {
-		return id;
+
+	public long getUserId() {
+		return userId;
 	}
-	public  void setId(long id) {
-		this.id = id;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 	public  String getFirstName() {
 		return firstName;
@@ -104,11 +110,12 @@ public class User{
 	public  void setPassword(String password) {
 		this.password = password;
 	}
-	public  List<String> getLinks() {
-		return links;
+	
+	public List<String> getUserLinks() {
+		return userLinks;
 	}
-	public  void setLinks(List<String> links) {
-		this.links = links;
+	public void setUserLinks(List<String> userLinks) {
+		this.userLinks = userLinks;
 	}
 	public  Address getAddress() {
 		return address;

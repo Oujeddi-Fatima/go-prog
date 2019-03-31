@@ -15,7 +15,9 @@ public interface IJobPostService {
 	
 	List<JobPost> findByAddress(Address address);
 	
-	List<JobPost> findByKey(String keyString);
+	List<JobPost> findByTitle(String keyString);
 	
 	Iterable<JobPost> findByUserId(long id);
+
+	JobPost findById(Long id);
 }

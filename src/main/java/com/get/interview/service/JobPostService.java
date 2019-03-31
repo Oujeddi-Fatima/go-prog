@@ -36,8 +36,8 @@ public class JobPostService implements IJobPostService{
 	}
 
 	@Override
-	public List<JobPost> findByKey(String keyString) {
-		return jobpostDao.findByKey(keyString);
+	public List<JobPost> findByTitle(String keyString) {
+		return jobpostDao.findByTitle(keyString);
 	}
 
 	public IJobPostDao getJobpostDao() {
@@ -51,7 +51,12 @@ public class JobPostService implements IJobPostService{
 	@Override
 	public Iterable<JobPost> findByUserId(long id) {
 		// TODO Auto-generated method stub
-		return jobpostDao.findByEmployerId(id);
+		return jobpostDao.findByEmployerUserId(id);
+	}
+
+	@Override
+	public JobPost findById(Long id) {
+		return jobpostDao.findById(id).get();
 	}
 
 }

@@ -13,13 +13,13 @@ import com.get.interview.model.JobPost;
 public interface IJobPostDao extends CrudRepository<JobPost, Long>{
 	
 
-	Iterable<JobPost> findByEmployerId(long id);
+	Iterable<JobPost> findByEmployerUserId(long id);
 
 	@Query(value = "FROM JobPost WHERE address.id =: address")
 	public List<JobPost> findByAddress(Address address);
 	
-	@Query(value ="FROM JobPost WHERE title=: keyString")
-	public List<JobPost> findByKey(String keyString);
+	@Query(value ="FROM JobPost WHERE title=: title")
+	public List<JobPost> findByTitle(String title);
 
 
 }

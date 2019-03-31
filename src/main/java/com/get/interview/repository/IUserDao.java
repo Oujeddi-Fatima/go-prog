@@ -17,4 +17,6 @@ public interface IUserDao extends CrudRepository<User, Long>{
 	
 	@Query(value = "FROM User WHERE firstName =: name")
 	public List<User> findByfirstName(String name);
+
+	public User findByUsernameAndPassword(String username, String password);
 }
