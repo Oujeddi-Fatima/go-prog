@@ -33,7 +33,7 @@ public class Employer extends User {
 	private List<Company> company;
 
 	@JsonManagedReference
-	@OneToMany(mappedBy = "employer")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employer")
 	private List<JobPost> jobPosts;
 
 	public Date getJoinDate() {

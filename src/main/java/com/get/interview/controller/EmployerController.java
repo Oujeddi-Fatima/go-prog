@@ -59,12 +59,12 @@ public class EmployerController {
 			Link companies = linkTo(methodOn(EmployerController.class).findCompany(employer.getUserId())).withRel("companies");
 			Link jobPosts = linkTo(methodOn(EmployerController.class).findCompany(employer.getUserId())).withRel("jobPosts");
 			employer.getCompany().stream().forEach(company->{
-				Link companyLink = linkTo(methodOn(CompanyController.class).getCompany(company.getCompanyId())).withRel("company");
+				Link companyLink = linkTo(methodOn(CompanyController.class).getCompany(company.getCompanyId())).withSelfRel();
 				company.add(companyLink);
 			});
-			employer.getCompany().stream().forEach(company->{
-				Link companyLink = linkTo(methodOn(CompanyController.class).getCompany(company.getCompanyId())).withRel("jobPost");
-				company.add(companyLink);
+			employer.getJobPosts().stream().forEach(jobPost->{
+				Link jobPostLink = linkTo(methodOn(CompanyController.class).getCompany(jobPost.getJobPostId())).withSelfRel();
+				jobPost.add(jobPostLink);
 			});
 			employer.add(savedJobsLink);
 			employer.add(searchHistoryLink);
