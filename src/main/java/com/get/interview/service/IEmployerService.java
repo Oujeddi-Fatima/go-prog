@@ -16,4 +16,6 @@ public interface IEmployerService {
 	List<Employer> findbyCompany(Company company) ;
 
 	Iterable<Employer> findAll();
+
+	Employer findById(long id);
 }

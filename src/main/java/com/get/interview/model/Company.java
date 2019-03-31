@@ -13,15 +13,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.springframework.hateoas.ResourceSupport;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class Company {
+public class Company extends ResourceSupport{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private long id;
+	private long companyId;
 	@Column
 	private String name;
 	@Column
@@ -53,12 +55,14 @@ public class Company {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Employer employer;
 
-	public  long getId() {
-		return id;
+	
+
+	public long getCompanyId() {
+		return companyId;
 	}
 
-	public  void setId(long id) {
-		this.id = id;
+	public void setCompanyId(long companyId) {
+		this.companyId = companyId;
 	}
 
 	public  String getName() {
