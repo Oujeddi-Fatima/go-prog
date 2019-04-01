@@ -14,14 +14,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.hateoas.ResourceSupport;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class JobPost {
+public class JobPost extends ResourceSupport{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@Column(name = "id")
+	private long jobPostId;
 	@Column
 	private String title;
 	@Column
@@ -54,11 +57,12 @@ public class JobPost {
 	private List<Question> questions;
 	
 	
-	public  long getId() {
-		return id;
+
+	public long getJobPostId() {
+		return jobPostId;
 	}
-	public  void setId(long id) {
-		this.id = id;
+	public void setJobPostId(long jobPostId) {
+		this.jobPostId = jobPostId;
 	}
 	public  String getTitle() {
 		return title;

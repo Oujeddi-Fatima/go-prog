@@ -55,16 +55,22 @@ public class EmployerController {
 					.withRel("savedJobs");
 			Link searchHistoryLink = linkTo(methodOn(UserController.class).getUserSearchHistory(employer.getUserId()))
 					.withRel("searchHistory");
+
 			Link isEmployer = linkTo(methodOn(EmployerController.class).find(employer.getUserId())).withRel("employer");
-			Link companies = linkTo(methodOn(EmployerController.class).findCompany(employer.getUserId())).withRel("companies");
-			Link jobPosts = linkTo(methodOn(EmployerController.class).findCompany(employer.getUserId())).withRel("jobPosts");
-			employer.getCompany().stream().forEach(company->{
-				Link companyLink = linkTo(methodOn(CompanyController.class).getCompany(company.getCompanyId())).withRel("company");
+			Link companies = linkTo(methodOn(EmployerController.class).findCompany(employer.getUserId()))
+					.withRel("companies");
+			Link jobPosts = linkTo(methodOn(EmployerController.class).findJobPosts(employer.getUserId()))
+					.withRel("jobPosts");
+
+			employer.getCompany().stream().forEach(company -> {
+				Link companyLink = linkTo(methodOn(CompanyController.class).getCompany(company.getCompanyId()))
+						.withSelfRel();
 				company.add(companyLink);
 			});
-			employer.getCompany().stream().forEach(company->{
-				Link companyLink = linkTo(methodOn(CompanyController.class).getCompany(company.getCompanyId())).withRel("jobPost");
-				company.add(companyLink);
+			employer.getJobPosts().stream().forEach(jobPost -> {
+				Link jobPostLink = linkTo(methodOn(JobPostController.class).getJobPostById(jobPost.getJobPostId()))
+						.withSelfRel();
+				jobPost.add(jobPostLink);
 			});
 			employer.add(savedJobsLink);
 			employer.add(searchHistoryLink);
@@ -73,6 +79,7 @@ public class EmployerController {
 			employer.add(applicationsNotes);
 			employer.add(isEmployer);
 			employer.add(companies);
+			employer.add(jobPosts);
 		}
 		return employer;
 	}
@@ -86,7 +93,7 @@ public class EmployerController {
 	public @ResponseBody List<JobPost> findJobPosts(@PathVariable long id) {
 		return employerService.findById(id).getJobPosts();
 	}
-	
+
 	@RequestMapping(params = { "job" }, method = RequestMethod.GET)
 	public @ResponseBody Employer find(@RequestParam String job) {
 		return employerService.find(job);
