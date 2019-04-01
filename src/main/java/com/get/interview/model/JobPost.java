@@ -17,6 +17,7 @@ import javax.persistence.OneToOne;
 import org.springframework.hateoas.ResourceSupport;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class JobPost extends ResourceSupport{
@@ -46,6 +47,7 @@ public class JobPost extends ResourceSupport{
 	@JsonBackReference
 	@ManyToOne(cascade=CascadeType.ALL)
 	private Employer employer;
+	@JsonManagedReference(value="jobpost-application")
 	@OneToMany(mappedBy ="jobPost",cascade=CascadeType.ALL)
 	private List<Application> applications;
 	

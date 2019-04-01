@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.get.interview.model.Address;
+import com.get.interview.model.Application;
 import com.get.interview.model.JobPost;
 import com.get.interview.service.IJobPostService;
 
@@ -36,6 +37,11 @@ public class JobPostController {
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public JobPost getJobPostById(@PathVariable Long id) {
 		return jobpostService.findById(id);
+	}
+	
+	@RequestMapping(value = "{id}/applications", method = RequestMethod.GET)
+	public List<Application> getJobPostApplications(@PathVariable Long id) {
+		return jobpostService.findById(id).getApplications();
 	}
 
 	@RequestMapping(method = RequestMethod.GET)

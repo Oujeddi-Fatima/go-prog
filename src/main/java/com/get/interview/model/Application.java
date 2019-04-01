@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Application {
 
@@ -23,8 +25,10 @@ public class Application {
 	private int score;
 	@Column
 	private ApplicationStatus status;
+	@JsonBackReference(value="jobpost-application")
 	@ManyToOne
 	private JobPost jobPost;
+	@JsonBackReference(value="applicant-application")
 	@ManyToOne
 	private User applicant;
 	@OneToMany

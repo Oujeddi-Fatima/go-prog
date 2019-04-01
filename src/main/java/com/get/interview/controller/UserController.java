@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,8 +42,8 @@ public class UserController {
 	public void saveUserResume(@PathVariable long userId, @RequestBody Resume resume) {
 		userService.saveUserResume(userId, resume);
 	}
-	
-	@RequestMapping(value = "{userId}/application", method = RequestMethod.POST)
+
+	@RequestMapping(value = "{userId}/application", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void saveUserApplication(@PathVariable long userId, @RequestBody Application application) {
 		userService.saveUserApplication(userId, application);
 	}
@@ -71,8 +72,7 @@ public class UserController {
 				.withRel("savedJobs");
 		Link searchHistoryLink = linkTo(methodOn(UserController.class).getUserSearchHistory(user.getUserId()))
 				.withRel("searchHistory");
-		Link isEmployer = linkTo(methodOn(EmployerController.class).find(user.getUserId()))
-				.withRel("employer");
+		Link isEmployer = linkTo(methodOn(EmployerController.class).find(user.getUserId())).withRel("employer");
 		user.add(savedJobsLink);
 		user.add(searchHistoryLink);
 		user.add(resumeLink);
@@ -93,8 +93,7 @@ public class UserController {
 				.withRel("savedJobs");
 		Link searchHistoryLink = linkTo(methodOn(UserController.class).getUserSearchHistory(user.getUserId()))
 				.withRel("searchHistory");
-		Link isEmployer = linkTo(methodOn(EmployerController.class).find(user.getUserId()))
-				.withRel("employer");
+		Link isEmployer = linkTo(methodOn(EmployerController.class).find(user.getUserId())).withRel("employer");
 		user.add(savedJobsLink);
 		user.add(searchHistoryLink);
 		user.add(resumeLink);

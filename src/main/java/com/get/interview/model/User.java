@@ -51,7 +51,8 @@ public class User extends ResourceSupport{
 	@JsonManagedReference
 	@OneToOne(cascade = CascadeType.ALL)
 	private Resume resume;
-	@OneToMany(mappedBy = "applicant")
+	@JsonManagedReference(value="applicant-application")
+	@OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
 	private List<Application> applications;
 	@OneToMany
 	private List<JobPost> savedJobs;

@@ -91,7 +91,13 @@ public class EmployerController {
 
 	@RequestMapping(value = "{id}/jobposts", method = RequestMethod.GET)
 	public @ResponseBody List<JobPost> findJobPosts(@PathVariable long id) {
-		return employerService.findById(id).getJobPosts();
+		List<JobPost> jobPosts = employerService.findById(id).getJobPosts();
+		jobPosts.stream().forEach(jobPost -> {
+			Link applicationsLink = linkTo(methodOn(JobPostController.class).getJobPostApplications(jobPost.getJobPostId()))
+					.withRel("applications");
+			jobPost.add(applicationsLink);
+		});
+		return jobPosts;
 	}
 
 	@RequestMapping(params = { "job" }, method = RequestMethod.GET)
