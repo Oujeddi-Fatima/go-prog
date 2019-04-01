@@ -41,6 +41,11 @@ public class UserController {
 	public void saveUserResume(@PathVariable long userId, @RequestBody Resume resume) {
 		userService.saveUserResume(userId, resume);
 	}
+	
+	@RequestMapping(value = "{userId}/application", method = RequestMethod.POST)
+	public void saveUserApplication(@PathVariable long userId, @RequestBody Application application) {
+		userService.saveUserApplication(userId, application);
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody List<User> getUsers() {

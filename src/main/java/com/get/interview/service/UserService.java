@@ -1,11 +1,12 @@
 package com.get.interview.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.get.interview.model.Address;
+import com.get.interview.model.Application;
 import com.get.interview.model.Resume;
 import com.get.interview.model.User;
 import com.get.interview.repository.IUserDao;
@@ -64,6 +65,16 @@ public class UserService implements IUserService {
 		User user = userDao.findById(userId).get();
 		user.setResume(resume);
 		resume.setUser(user);
+		userDao.save(user);
+	}
+	
+	@Override
+	public void saveUserApplication(long userId, Application application) {
+		List<Application> applications= new ArrayList();
+		User user = userDao.findById(userId).get();
+		applications= user.getApplications();
+		applications.add(application);
+		user.setApplications(applications);
 		userDao.save(user);
 	}
 }

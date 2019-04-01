@@ -3,6 +3,7 @@ package com.get.interview.service;
 import java.util.List;
 
 import com.get.interview.model.Address;
+import com.get.interview.model.Application;
 import com.get.interview.model.Resume;
 import com.get.interview.model.User;
 
@@ -22,6 +23,8 @@ public interface IUserService {
 
 	User findByUsernamePwd(String username, String pwd);
 
-	void saveUserResume(long userId, Resume resume);	
+	void saveUserResume(long userId, Resume resume);
+
+	void saveUserApplication(long userId, Application application);	
 
 }
