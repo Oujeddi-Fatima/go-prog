@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.get.interview.model.Address;
 import com.get.interview.model.JobPost;
+import com.get.interview.model.Skill;
 
 public interface IJobPostService {
 
@@ -20,4 +21,6 @@ public interface IJobPostService {
 	Iterable<JobPost> findByUserId(long id);
 
 	JobPost findById(Long id);
+
+	Iterable<JobPost> findAllBySkill(List<Skill> skill);
 }

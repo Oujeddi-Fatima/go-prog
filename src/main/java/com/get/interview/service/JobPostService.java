@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.get.interview.model.Address;
 import com.get.interview.model.JobPost;
+import com.get.interview.model.Skill;
 import com.get.interview.repository.IJobPostDao;
 
 @Service
@@ -57,6 +58,11 @@ public class JobPostService implements IJobPostService{
 	@Override
 	public JobPost findById(Long id) {
 		return jobpostDao.findById(id).get();
+	}
+
+	@Override
+	public Iterable<JobPost> findAllBySkill(List<Skill> skill) {
+		return jobpostDao.findAllByskillSet(skill);
 	}
 
 }

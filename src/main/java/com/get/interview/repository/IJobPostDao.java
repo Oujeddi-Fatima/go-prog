@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.get.interview.model.Address;
 import com.get.interview.model.JobPost;
+import com.get.interview.model.Skill;
 
 @Repository
 public interface IJobPostDao extends CrudRepository<JobPost, Long>{
@@ -20,6 +21,8 @@ public interface IJobPostDao extends CrudRepository<JobPost, Long>{
 	
 	@Query(value ="FROM JobPost WHERE title=: title")
 	public List<JobPost> findByTitle(String title);
+
+	Iterable<JobPost> findAllByskillSet(List<Skill> skill);
 
 
 }
