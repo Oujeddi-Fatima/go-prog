@@ -1,5 +1,8 @@
 package com.get.interview.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +25,10 @@ public class SkillService implements ISkillService {
 
 	@Override
 	public Iterable<Skill> findAllBySkill(String skill) {
-		return skillDao.findAllBySkill(skill);
+		List<Skill> skills = new ArrayList<Skill>();
+		for(String s : skill.split(",")) {
+			skills.addAll(skillDao.findAllBySkill(s));
+		}
+		return skills;
 	}
 }

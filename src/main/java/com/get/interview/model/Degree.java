@@ -9,7 +9,7 @@ public enum Degree {
 	private String status;
 	
 	
-	Degree(){
+	Degree(Character d){
 	}
 	
 	Degree(String status){

@@ -1,6 +1,9 @@
 package com.get.interview.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,29 +14,29 @@ import com.get.interview.model.Skill;
 import com.get.interview.repository.IJobPostDao;
 
 @Service
-public class JobPostService implements IJobPostService{
-	
+public class JobPostService implements IJobPostService {
+
 	@Autowired
 	private IJobPostDao jobpostDao;
 
 	@Override
-	public JobPost save(JobPost jobPost) {	
+	public JobPost save(JobPost jobPost) {
 		return jobpostDao.save(jobPost);
 	}
 
 	@Override
-	public void delete(Long id) {	
-		 jobpostDao.deleteById(id);	
+	public void delete(Long id) {
+		jobpostDao.deleteById(id);
 	}
 
 	@Override
-  public Iterable<JobPost> findAll() {
+	public Iterable<JobPost> findAll() {
 		return jobpostDao.findAll();
 	}
 
 	@Override
 	public List<JobPost> findByAddress(Address address) {
-		return  jobpostDao.findByAddress(address);
+		return jobpostDao.findByAddress(address);
 	}
 
 	@Override
@@ -62,7 +65,13 @@ public class JobPostService implements IJobPostService{
 
 	@Override
 	public Iterable<JobPost> findAllBySkill(List<Skill> skill) {
-		return jobpostDao.findAllByskillSet(skill);
+		Map<Long,JobPost> jobs = new HashMap<Long,JobPost>();
+		for (Skill s : skill) {
+			for( JobPost jd : jobpostDao.findAllByskill("%" + s.getSkill() + "%")) {
+				jobs.put(jd.getJobPostId(), jd);
+			}
+		}
+		return jobs.values();
 	}
 
 }

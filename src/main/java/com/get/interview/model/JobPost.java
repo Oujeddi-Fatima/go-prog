@@ -48,13 +48,13 @@ public class JobPost extends ResourceSupport {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Employer employer;
 	@JsonManagedReference(value = "jobpost-application")
-	@OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "jobPost", cascade = {CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.REMOVE})
 	private List<Application> applications;
 
 	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REFRESH })
 	private Company company;
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Skill> skillSet;
+	private List<Skill> skill;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Question> questions;
 
@@ -162,12 +162,12 @@ public class JobPost extends ResourceSupport {
 		this.company = company;
 	}
 
-	public List<Skill> getSkillSet() {
-		return skillSet;
+	public List<Skill> getSkill() {
+		return skill;
 	}
 
-	public void setSkillSet(List<Skill> skillSet) {
-		this.skillSet = skillSet;
+	public void setSkill(List<Skill> skill) {
+		this.skill = skill;
 	}
 
 	public List<Question> getQuestions() {

@@ -32,15 +32,15 @@ public class User extends ResourceSupport{
 	private String firstName;
 	@Column
 	private String lastName;
-	@Column
+	@Column(unique=true, nullable=true)
 	private String email;
 	@Column
 	private String phoneNumber;
 	@Column
 	private Date dateOfBirth;
-	@Column
+	@Column(unique=true)
 	private String username;
-	@Column 
+	@Column(unique=true)
 	private String password;
 	@Column
     @ElementCollection(targetClass=String.class)

@@ -13,7 +13,7 @@ public class Skill {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column
-	private String Skill;
+	private String skill;
 
 	
 	public long getId() {
@@ -25,10 +25,12 @@ public class Skill {
 	}
 
 	public String getSkill() {
-		return Skill;
+		return skill;
 	}
 
 	public void setSkill(String skill) {
-		Skill = skill;
+		this.skill = skill;
 	}
+
+
 }
