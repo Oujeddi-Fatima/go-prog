@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.get.interview.model.Address;
 import com.get.interview.model.Application;
 import com.get.interview.model.JobPost;
+import com.get.interview.model.Skill;
 import com.get.interview.service.IJobPostService;
 
 @CrossOrigin("http://localhost:4200")
@@ -33,12 +34,12 @@ public class JobPostController {
 	public void deleteJobPost(@PathVariable Long id) {
 		jobpostService.delete(id);
 	}
-	
+
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public JobPost getJobPostById(@PathVariable Long id) {
 		return jobpostService.findById(id);
 	}
-	
+
 	@RequestMapping(value = "{id}/applications", method = RequestMethod.GET)
 	public List<Application> getJobPostApplications(@PathVariable Long id) {
 		return jobpostService.findById(id).getApplications();
@@ -47,6 +48,11 @@ public class JobPostController {
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody Iterable<JobPost> getJobPosts() {
 		return jobpostService.findAll();
+	}
+
+	@RequestMapping(value ="byskill", method = RequestMethod.POST)
+	public @ResponseBody Iterable<JobPost> getJobPosts(@RequestBody List<Skill> skills) {
+		return jobpostService.findAllBySkill(skills);
 	}
 
 	@RequestMapping(value = "address", method = RequestMethod.POST)

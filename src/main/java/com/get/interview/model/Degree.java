@@ -4,7 +4,7 @@ package com.get.interview.model;
 
 public enum Degree {
 	
-	ASSOCIATE("Associate"),BACHELOR("Bachelor"),MASTER("Master"),DOCTORAL("Doctoral"),Others;
+	ASSOCIATE("Associate"),BACHELOR("Bachelor"),MASTER("Master"),DOCTORAL("Doctoral"),OHTERS("Others");
 
 	private String status;
 	
