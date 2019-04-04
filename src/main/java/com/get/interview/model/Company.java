@@ -51,7 +51,7 @@ public class Company extends ResourceSupport{
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
-	@JsonBackReference
+	@JsonBackReference(value="company-employer")
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Employer employer;
 

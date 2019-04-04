@@ -28,11 +28,11 @@ public class Employer extends User {
 	@Column
 	private String workFax;
 
-	@JsonManagedReference
+	@JsonManagedReference(value="company-employer")
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employer")
 	private List<Company> company;
 
-	@JsonManagedReference
+	@JsonManagedReference(value="jobpost-employer")
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employer")
 	private List<JobPost> jobPosts;
 

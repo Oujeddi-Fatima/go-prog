@@ -20,8 +20,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-public class JobPost extends ResourceSupport{
-	
+public class JobPost extends ResourceSupport {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -42,112 +42,139 @@ public class JobPost extends ResourceSupport{
 	private Date closeDate;
 	@Column
 	private Long estimatedSalary;
-	@OneToOne(cascade=CascadeType.ALL)
-	private Address address;	
-	@JsonBackReference
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;
+	@JsonBackReference(value = "jobpost-employer")
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Employer employer;
-	@JsonManagedReference(value="jobpost-application")
-	@OneToMany(mappedBy ="jobPost",cascade=CascadeType.ALL)
+	@JsonManagedReference(value = "jobpost-application")
+	@OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
 	private List<Application> applications;
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REFRESH })
 	private Company company;
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Skill> skillSet;
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Question> questions;
-	
-	
 
 	public long getJobPostId() {
 		return jobPostId;
 	}
+
 	public void setJobPostId(long jobPostId) {
 		this.jobPostId = jobPostId;
 	}
-	public  String getTitle() {
+
+	public String getTitle() {
 		return title;
 	}
-	public  void setTitle(String title) {
+
+	public void setTitle(String title) {
 		this.title = title;
 	}
-	public  String getLevel() {
+
+	public String getLevel() {
 		return level;
 	}
-	public  void setLevel(String level) {
+
+	public void setLevel(String level) {
 		this.level = level;
 	}
-	public  String getDescription() {
+
+	public String getDescription() {
 		return description;
 	}
-	public  void setDescription(String description) {
+
+	public void setDescription(String description) {
 		this.description = description;
 	}
-	public  String getRequirement() {
+
+	public String getRequirement() {
 		return requirement;
 	}
-	public  void setRequirement(String requirement) {
+
+	public void setRequirement(String requirement) {
 		this.requirement = requirement;
 	}
-	public  String getRequiredQalification() {
+
+	public String getRequiredQalification() {
 		return requiredQalification;
 	}
-	public  void setRequiredQalification(String requiredQalification) {
+
+	public void setRequiredQalification(String requiredQalification) {
 		this.requiredQalification = requiredQalification;
 	}
-	public  Date getPostDate() {
+
+	public Date getPostDate() {
 		return postDate;
 	}
-	public  void setPostDate(Date postDate) {
+
+	public void setPostDate(Date postDate) {
 		this.postDate = postDate;
 	}
-	public  Date getCloseDate() {
+
+	public Date getCloseDate() {
 		return closeDate;
 	}
-	public  void setCloseDate(Date closeDate) {
+
+	public void setCloseDate(Date closeDate) {
 		this.closeDate = closeDate;
 	}
-	public  Long getEstimatedSalary() {
+
+	public Long getEstimatedSalary() {
 		return estimatedSalary;
 	}
-	public  void setEstimatedSalary(Long estimatedSalary) {
+
+	public void setEstimatedSalary(Long estimatedSalary) {
 		this.estimatedSalary = estimatedSalary;
 	}
-	public  Address getAddress() {
+
+	public Address getAddress() {
 		return address;
 	}
-	public  void setAddress(Address address) {
+
+	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public  Employer getEmployer() {
+
+	public Employer getEmployer() {
 		return employer;
 	}
-	public  void setEmployer(Employer employer) {
+
+	public void setEmployer(Employer employer) {
 		this.employer = employer;
 	}
-	public  List<Application> getApplications() {
+
+	public List<Application> getApplications() {
 		return applications;
 	}
-	public  void setApplications(List<Application> applications) {
+
+	public void setApplications(List<Application> applications) {
 		this.applications = applications;
 	}
-	public  Company getCompany() {
+
+	public Company getCompany() {
 		return company;
 	}
-	public  void setCompany(Company company) {
+
+	public void setCompany(Company company) {
 		this.company = company;
 	}
-	public  List<Skill> getSkillSet() {
+
+	public List<Skill> getSkillSet() {
 		return skillSet;
 	}
-	public  void setSkillSet(List<Skill> skillSet) {
+
+	public void setSkillSet(List<Skill> skillSet) {
 		this.skillSet = skillSet;
 	}
-	public  List<Question> getQuestions() {
+
+	public List<Question> getQuestions() {
 		return questions;
 	}
-	public  void setQuestions(List<Question> questions) {
+
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 }
